@@ -37,7 +37,8 @@
   --color-text-dark: #121212;
 
   /* Tipografia */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Raios de Borda (Border Radius) */
   --radius-input: 8px;
@@ -83,7 +84,7 @@ body {
   padding: 36px 24px 32px;
   display: flex;
   flex-direction: column;
-  box-shadow: 
+  box-shadow:
     0 24px 50px rgba(0, 0, 0, 0.6),
     0 0 35px rgba(0, 255, 102, 0.04);
 }
@@ -190,7 +191,10 @@ body {
   font-family: inherit;
   font-size: 15px;
   outline: none;
-  transition: border-color var(--transition-default), box-shadow var(--transition-default), background-color var(--transition-default);
+  transition:
+    border-color var(--transition-default),
+    box-shadow var(--transition-default),
+    background-color var(--transition-default);
 }
 
 .form-input::placeholder {
@@ -237,7 +241,10 @@ body {
   justify-content: center;
   gap: 8px;
   box-shadow: 0 8px 20px var(--color-accent-glow);
-  transition: background-color var(--transition-default), transform var(--transition-default), box-shadow var(--transition-default);
+  transition:
+    background-color var(--transition-default),
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
 }
 
 /* Efeito Hover do Botão */
@@ -263,7 +270,221 @@ body {
 }
 
 /* ==========================================================================
-   9. RESPONSIVIDADE E AJUSTES PARA TELAS MENORES
+   9. TELA INICIAL / BOAS-VINDAS (WELCOME SCREEN)
+   ========================================================================== */
+
+/* Barra de Status do Dispositivo (Estilo iOS do Figma) */
+.device-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 28px;
+  padding: 0 4px;
+}
+
+.status-time {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-text-primary);
+}
+
+.status-icons svg {
+  display: block;
+}
+
+/* Container de Boas-Vindas */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+/* Área de Marca e Logo Grande */
+.welcome-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: auto;
+}
+
+.welcome-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.welcome-pulse-icon {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 14px var(--color-accent-glow));
+}
+
+.welcome-logo-text {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.welcome-logo-ai {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-accent-green);
+  line-height: 1;
+  align-self: flex-start;
+  margin-top: 4px;
+  text-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+.welcome-tagline {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Bloco Hero (Títulos de Boas-Vindas) */
+.welcome-hero {
+  margin: 36px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.welcome-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Ações / Botões */
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Botão Secundário ("Já tenho conta") */
+.btn-secondary {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-button);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #5c6460;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Suporte para link <a> como btn-primary */
+a.btn-primary {
+  text-decoration: none;
+}
+
+/* Texto Legal / Termos e Políticas */
+.welcome-legal {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-text-helper);
+  margin-bottom: 24px;
+}
+
+.welcome-legal a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  transition: color var(--transition-default);
+}
+
+.welcome-legal a:hover {
+  color: var(--color-accent-green);
+}
+
+/* Indicador Inferior (Home Bar) */
+.home-indicator {
+  width: 134px;
+  height: 4px;
+  background-color: var(--color-text-secondary);
+  opacity: 0.5;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+
+/* Botão Voltar (Navegação) */
+.back-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition:
+    color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.btn-back:hover {
+  color: var(--color-accent-green);
+  transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   10. RESPONSIVIDADE E AJUSTES PARA TELAS MENORES
    ========================================================================== */
 @media (max-width: 420px) {
   body {
@@ -276,7 +497,7 @@ body {
     border-radius: 0;
     border: none;
     box-shadow: none;
-    padding: 28px 20px 24px;
+    padding: 24px 20px 20px;
   }
 
   .logo-text {
@@ -285,6 +506,19 @@ body {
 
   .logo-ai {
     font-size: 22px;
+  }
+
+  .welcome-logo-text {
+    font-size: 44px;
+  }
+
+  .welcome-pulse-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
   }
 
   .form-title {
