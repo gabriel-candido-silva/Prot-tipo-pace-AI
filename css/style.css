@@ -501,6 +501,54 @@ body {
   display: block;
 }
 
+/* Alertas da Tela de Login (Figma) */
+.login-form:has(#loginIdentifier:user-invalid) .alert-login-invalid {
+  display: block;
+}
+
+.login-form:has(#loginPassword:user-invalid) .alert-password-empty {
+  display: block;
+}
+
+/* Link 'Esqueceu sua senha?' (Figma) */
+.forgot-password-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.forgot-password-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-default);
+}
+
+.forgot-password-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* Link de alternância entre Login e Cadastro */
+.auth-switch-text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.auth-switch-text a {
+  color: var(--color-accent-green);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    12. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR / CRIAR CONTA / VERIFICAR E-MAIL)
    ========================================================================== */
