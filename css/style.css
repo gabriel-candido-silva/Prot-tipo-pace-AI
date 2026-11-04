@@ -36,6 +36,10 @@
   --color-text-placeholder: #5c6460;
   --color-text-dark: #121212;
 
+  /* Cores de Erro e Alerta (Figma PACE AI) */
+  --color-error: #f01317;
+  --color-error-glow: rgba(240, 19, 23, 0.25);
+
   /* Tipografia */
   --font-family:
     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -218,7 +222,63 @@ body {
 }
 
 /* ==========================================================================
-   8. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR)
+   8. VALIDAÇÃO PURA VIA CSS (:user-invalid e :has) - FIGMA PACE AI
+   ========================================================================== */
+
+/* Borda e foco em estado de erro */
+.form-input:user-invalid {
+  border-color: var(--color-error);
+}
+
+.form-input:user-invalid:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-glow);
+}
+
+/* Container das mensagens de alerta (acima do botão Continuar) */
+.form-error-container {
+  min-height: 18px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.form-error-alert {
+  display: none;
+  color: var(--color-error);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  animation: alertFadeIn 0.2s ease-in-out;
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Caso 1: Apenas CPF inválido */
+.signup-form:has(#cpf:user-invalid):not(:has(#email:user-invalid)) .alert-cpf {
+  display: block;
+}
+
+/* Caso 2: Apenas E-mail inválido */
+.signup-form:has(#email:user-invalid):not(:has(#cpf:user-invalid)) .alert-email {
+  display: block;
+}
+
+/* Caso 3: Ambos inválidos (Fiel ao Figma: "CPF e e-mail inválidos!") */
+.signup-form:has(#cpf:user-invalid):has(#email:user-invalid) .alert-both {
+  display: block;
+}
+
+/* ==========================================================================
+   9. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR)
    ========================================================================== */
 .form-actions {
   margin-top: auto;

@@ -96,6 +96,10 @@
               name="cpf"
               class="form-input"
               placeholder="000.000.000-00"
+              inputmode="numeric"
+              maxlength="14"
+              pattern="[0-9]{11}|[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}"
+              title="Digite um CPF válido com 11 dígitos"
               required
             />
           </div>
@@ -109,11 +113,20 @@
               name="email"
               class="form-input"
               placeholder="Digite seu e-mail"
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+              title="Digite um e-mail válido"
               required
             />
             <p class="form-helper">
               Você receberá um código neste e-mail para confirmar seu cadastro.
             </p>
+          </div>
+
+          <!-- Alertas de Erro (Exibidos puramente via CSS com :has e :user-invalid) -->
+          <div class="form-error-container" aria-live="polite">
+            <p class="form-error-alert alert-cpf">CPF inválido!</p>
+            <p class="form-error-alert alert-email">E-mail inválido!</p>
+            <p class="form-error-alert alert-both">CPF e e-mail inválidos!</p>
           </div>
 
           <!-- Botão Principal de Ação -->
