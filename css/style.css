@@ -277,8 +277,136 @@ body {
   display: block;
 }
 
+/* Caso 4: Senha inválida (mínimo 8 caracteres, letras e números) */
+.signup-form:has(#password:user-invalid) .alert-password-invalid {
+  display: block;
+}
+
 /* ==========================================================================
-   9. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR)
+   9. CAMPO DE SENHA COM ÍCONE (MOSTRAR / OCULTAR)
+   ========================================================================== */
+.input-password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input-password-wrapper .form-input {
+  padding-right: 48px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--color-text-placeholder);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  outline: none;
+  transition: color var(--transition-default), transform var(--transition-default);
+}
+
+.btn-toggle-password:hover {
+  color: var(--color-text-primary);
+}
+
+.btn-toggle-password:focus-visible {
+  color: var(--color-accent-green);
+}
+
+/* ==========================================================================
+   10. ACEITE DOS TERMOS (CHECKBOX CUSTOMIZADO - FIGMA PACE AI)
+   ========================================================================== */
+.terms-group {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition:
+    border-color var(--transition-default),
+    background-color var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.custom-checkbox-box .check-icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--transition-default),
+    transform var(--transition-default);
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box {
+  border-color: var(--color-accent-green);
+  background-color: #122117;
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box .check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.custom-checkbox-input:focus-visible + .custom-checkbox-box {
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.custom-checkbox-input:user-invalid + .custom-checkbox-box {
+  border-color: var(--color-error);
+}
+
+.terms-text {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.terms-link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-default);
+}
+
+.terms-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* ==========================================================================
+   11. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR / CRIAR CONTA)
    ========================================================================== */
 .form-actions {
   margin-top: auto;
@@ -514,7 +642,7 @@ a.btn-primary {
   background-color: var(--color-text-secondary);
   opacity: 0.5;
   border-radius: 100px;
-  margin: 0 auto;
+  margin: 24px auto 0;
 }
 
 /* Botão Voltar (Navegação) */
