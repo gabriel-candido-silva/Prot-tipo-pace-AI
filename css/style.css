@@ -406,7 +406,103 @@ body {
 }
 
 /* ==========================================================================
-   11. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR / CRIAR CONTA)
+   11. CÓDIGO DE VERIFICAÇÃO DE 4 DÍGITOS (FIGMA PACE AI)
+   ========================================================================== */
+.code-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-digits-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.code-digit-input {
+  flex: 1;
+  max-width: 78px;
+  height: 56px;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-button);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition:
+    border-color var(--transition-default),
+    box-shadow var(--transition-default),
+    background-color var(--transition-default);
+  -moz-appearance: textfield;
+}
+
+/* Remove setas de número em navegadores WebKit */
+.code-digit-input::-webkit-outer-spin-button,
+.code-digit-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code-digit-input:focus {
+  background-color: #161a17;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.code-digit-input:user-invalid {
+  border-color: var(--color-error);
+}
+
+.code-digit-input:user-invalid:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-glow);
+}
+
+/* Informações de Expiração e Reenvio */
+.code-timer-info {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.code-timer-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.code-resend-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-helper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--transition-default);
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+}
+
+.code-resend-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* Alerta de Código Incorreto (Figma: "Código incorreto!") */
+.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
+  display: block;
+}
+
+/* ==========================================================================
+   12. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR / CRIAR CONTA / VERIFICAR E-MAIL)
    ========================================================================== */
 .form-actions {
   margin-top: auto;
