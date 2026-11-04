@@ -524,6 +524,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  text-decoration: none;
   box-shadow: 0 8px 20px var(--color-accent-glow);
   transition:
     background-color var(--transition-default),
@@ -554,7 +555,87 @@ body {
 }
 
 /* ==========================================================================
-   9. TELA INICIAL / BOAS-VINDAS (WELCOME SCREEN)
+   13. TELA DE ÊXITO / CONFIRMAÇÃO DE CONTA (FIGMA PACE AI)
+   ========================================================================== */
+.success-screen-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+/* Círculo do Check (Conta confirmada no Figma) */
+.success-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background-color: rgba(0, 255, 102, 0.06);
+  box-shadow: 0 0 25px var(--color-accent-glow);
+  animation: successPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-icon-wrapper .check-icon-large {
+  width: 30px;
+  height: 30px;
+  color: var(--color-accent-green);
+}
+
+/* Mensagem de Confirmação */
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: successFadeIn 0.3s ease-out 0.15s both;
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.success-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   14. TELA INICIAL / BOAS-VINDAS (WELCOME SCREEN)
    ========================================================================== */
 
 /* Barra de Status do Dispositivo (Estilo iOS do Figma) */
