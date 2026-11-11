@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Início - PACE AI</title>
+
+    <!-- Fonte Inter do Google Fonts (usada no Figma) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Folha de Estilos Externa -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Container Principal da Tela do Aplicativo -->
+    <main class="app-container">
+      <div class="screen-card home-screen">
+
+        <!-- Barra de Status do Dispositivo (Estilo iOS) -->
+        <header class="device-status-bar" aria-label="Status do dispositivo">
+          <span class="status-time">16:16</span>
+          <div class="status-icons">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sinal celular">
+              <path d="M1 9.5H3V10.5H1V9.5ZM5 7H7V10.5H5V7ZM9 4.5H11V10.5H9V4.5ZM13 1H15V10.5H13V1Z" fill="currentColor" />
+            </svg>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Wi-Fi">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.5C10.74 2.5 13.23 3.56 15.09 5.29L16 4.38C13.9 2.42 11.09 1.25 8 1.25C4.91 1.25 2.1 2.42 0 4.38L0.91 5.29C2.77 3.56 5.26 2.5 8 2.5ZM8 6C9.72 6 11.28 6.66 12.44 7.74L13.35 6.83C11.96 5.54 10.07 4.75 8 4.75C5.93 4.75 4.04 5.54 2.65 6.83L3.56 7.74C4.72 6.66 6.28 6 8 6ZM8 9.25C8.97 9.25 9.75 10.03 9.75 11H6.25C6.25 10.03 7.03 9.25 8 9.25Z" fill="currentColor" />
+            </svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bateria">
+              <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" />
+              <rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor" />
+              <path d="M23 4C23.8284 4 24.5 4.67157 24.5 5.5V6.5C24.5 7.32843 23.8284 8 23 8V4Z" fill="currentColor" />
+            </svg>
+          </div>
+        </header>
+
+        <!-- Conteúdo rolável (acima do nav fixo) -->
+        <div class="home-scroll-content">
+
+          <!-- Cabeçalho do App: Logo + Botão de Perfil (Figma #2036:117 até #2104:4) -->
+          <header class="home-header">
+            <div class="logo">
+              <svg class="logo-pulse" width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M42.5 22H37.416C36.5201 21.9981 35.6482 22.2897 34.9337 22.8302C34.2192 23.3707 33.7014 24.1304 33.4595 24.993L28.642 42.131C28.6109 42.2375 28.5462 42.331 28.4575 42.3975C28.3688 42.464 28.2609 42.5 28.15 42.5C28.0391 42.5 27.9312 42.464 27.8425 42.3975C27.7538 42.331 27.6891 42.2375 27.658 42.131L16.342 1.869C16.311 1.76255 16.2462 1.66903 16.1575 1.6025C16.0688 1.53597 15.9609 1.5 15.85 1.5C15.7391 1.5 15.6312 1.53597 15.5425 1.6025C15.4538 1.66903 15.389 1.76255 15.358 1.869L10.5405 19.007C10.2996 19.8663 9.78483 20.6235 9.07447 21.1636C8.36411 21.7038 7.49691 21.9974 6.6045 22H1.5" stroke="#00FF66" stroke-width="3" stroke-linecap="round" />
+              </svg>
+              <span class="logo-text" style="font-size: 28px;">PACE</span>
+              <span class="logo-ai" style="font-size: 22px;">AI</span>
+            </div>
+
+            <!-- Botão de Perfil do Usuário (Figma #2104:4 + #2036:121) -->
+            <button class="home-profile-btn" aria-label="Perfil do usuário">
+              <svg width="12" height="15" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M7 8C9.20914 8 11 6.20914 11 4C11 1.79086 9.20914 0 7 0C4.79086 0 3 1.79086 3 4C3 6.20914 4.79086 8 7 8Z" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M1 16C1 13.2386 3.68629 11 7 11C10.3137 11 13 13.2386 13 16" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+          </header>
+
+          <!-- Saudação do Usuário (Figma #2036:124 e #2036:125) -->
+          <section class="home-greeting" aria-label="Saudação">
+            <h1 class="home-greeting-title">Olá! 👋</h1>
+            <p class="home-greeting-sub">Vamos ao próximo treino?</p>
+          </section>
+
+          <!-- Card Principal: Próximo Treino (Figma #2104:5 — card-bg) -->
+          <section class="home-workout-card" aria-label="Próximo treino">
+
+            <!-- Cabeçalho do Card: Label + Nome do Treino + Descrição -->
+            <div class="workout-card-header">
+              <span class="workout-label">PRÓXIMO TREINO</span>
+              <h2 class="workout-title">Treino A</h2>
+              <p class="workout-desc">7 exercícios · Peitoral, Costas</p>
+            </div>
+
+            <!-- Carrossel de Exercícios (Figma: carousel-bg + carousel-img-supino) -->
+            <div class="workout-carousel" aria-label="Exercícios do treino">
+              <!-- Slide 1: Supino Reto Máquina -->
+              <div class="carousel-slide active" data-index="0">
+                <div class="carousel-img-wrapper">
+                  <img
+                    src="assets/supino-reto.png"
+                    alt="Supino Reto Máquina"
+                    class="carousel-img"
+                    loading="lazy"
+                  />
+                  <!-- Gradiente inferior (Figma: carousel-img-gradient) -->
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <!-- Legenda do Exercício (Figma #2104:12 e #2104:13) -->
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Supino Reto Máquina</span>
+                    <span class="carousel-exercise-index">Exercício 1 de 7</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slides 2-7 (placeholder visual para o protótipo) -->
+              <div class="carousel-slide" data-index="1">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Crucifixo Máquina</span>
+                    <span class="carousel-exercise-index">Exercício 2 de 7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" data-index="2">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Puxada Frontal</span>
+                    <span class="carousel-exercise-index">Exercício 3 de 7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" data-index="3">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Remada Baixa</span>
+                    <span class="carousel-exercise-index">Exercício 4 de 7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" data-index="4">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Voador</span>
+                    <span class="carousel-exercise-index">Exercício 5 de 7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" data-index="5">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Pulldown</span>
+                    <span class="carousel-exercise-index">Exercício 6 de 7</span>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-slide" data-index="6">
+                <div class="carousel-img-wrapper carousel-placeholder">
+                  <div class="carousel-placeholder-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                      <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="carousel-gradient" aria-hidden="true"></div>
+                  <div class="carousel-caption">
+                    <span class="carousel-exercise-name">Abdominal</span>
+                    <span class="carousel-exercise-index">Exercício 7 de 7</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botão Anterior (Figma #2104:14 e #2104:15) -->
+              <button class="carousel-btn carousel-btn-prev" aria-label="Exercício anterior" id="carousel-prev">
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 1L2 6L8 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <!-- Botão Próximo (Figma #2104:16 e #2104:17) -->
+              <button class="carousel-btn carousel-btn-next" aria-label="Próximo exercício" id="carousel-next">
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M2 1L8 6L2 11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Indicadores de Paginação do Carrossel (Figma #2104:18 até #2104:31) -->
+            <div class="carousel-dots" role="tablist" aria-label="Exercícios">
+              <span class="carousel-dot active" role="tab" aria-label="Exercício 1" data-dot="0"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 2" data-dot="1"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 3" data-dot="2"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 4" data-dot="3"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 5" data-dot="4"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 6" data-dot="5"></span>
+              <span class="carousel-dot" role="tab" aria-label="Exercício 7" data-dot="6"></span>
+            </div>
+
+            <!-- Botão: Ver Treino Completo (Figma #2104:21 e #2104:22) -->
+            <div class="workout-card-actions">
+              <a href="#" class="btn-primary workout-cta-btn" role="button">
+                <span>Ver treino completo</span>
+                <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+
+          </section>
+
+          <!-- Mensagem motivacional de rodapé (Figma #2107:14 implícito) -->
+          <p class="home-footer-tip">
+            💡 <strong>Ótimo trabalho!</strong> Para ver suas metas, vá até a aba <em>Progresso</em>
+          </p>
+
+        </div><!-- fim .home-scroll-content -->
+
+        <!-- Navegação Inferior Fixa (Figma #2124:28 — bottom-nav) -->
+        <nav class="bottom-nav" aria-label="Navegação principal">
+          <!-- Aba: Início (ativa) -->
+          <a href="inicio.html" class="bottom-nav-tab active" aria-current="page" aria-label="Início">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <!-- Ícone Home -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H15V15H9V21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Início</span>
+          </a>
+
+          <!-- Aba: Meu Treino -->
+          <a href="#" class="bottom-nav-tab" aria-label="Meu Treino">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <!-- Ícone Halter / Meu Treino -->
+              <svg width="28" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Meu Treino</span>
+          </a>
+
+          <!-- Aba: Pace AI -->
+          <a href="#" class="bottom-nav-tab" aria-label="Pace AI">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <!-- Ícone Pulso/AI -->
+              <svg width="22" height="22" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M42.5 22H37.416C36.5201 21.9981 35.6482 22.2897 34.9337 22.8302C34.2192 23.3707 33.7014 24.1304 33.4595 24.993L28.642 42.131C28.6109 42.2375 28.5462 42.331 28.4575 42.3975C28.3688 42.464 28.2609 42.5 28.15 42.5C28.0391 42.5 27.9312 42.464 27.8425 42.3975C27.7538 42.331 27.6891 42.2375 27.658 42.131L16.342 1.869C16.311 1.76255 16.2462 1.66903 16.1575 1.6025C16.0688 1.53597 15.9609 1.5 15.85 1.5C15.7391 1.5 15.6312 1.53597 15.5425 1.6025C15.4538 1.66903 15.389 1.76255 15.358 1.869L10.5405 19.007C10.2996 19.8663 9.78483 20.6235 9.07447 21.1636C8.36411 21.7038 7.49691 21.9974 6.6045 22H1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Pace AI</span>
+          </a>
+
+          <!-- Aba: Progresso -->
+          <a href="#" class="bottom-nav-tab" aria-label="Progresso">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <!-- Ícone Gráfico de Progresso -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Progresso</span>
+          </a>
+        </nav>
+
+      </div>
+    </main>
+
+    <!-- Script para o Carrossel de Exercícios -->
+    <script>
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const btnPrev = document.getElementById('carousel-prev');
+      const btnNext = document.getElementById('carousel-next');
+      let current = 0;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      btnPrev.addEventListener('click', () => goTo(current - 1));
+      btnNext.addEventListener('click', () => goTo(current + 1));
+      dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+      // Swipe touch para mobile
+      let touchStartX = 0;
+      const carousel = document.querySelector('.workout-carousel');
+      carousel.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+      carousel.addEventListener('touchend', (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      }, { passive: true });
+    </script>
+  </body>
+</html>
+
