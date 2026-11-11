@@ -496,8 +496,9 @@ body {
   color: var(--color-accent-green);
 }
 
-/* Alerta de Código Incorreto (Figma: "Código incorreto!") */
-.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
+/* Alerta de Código Incorreto — cadastro e login (Figma: "Código incorreto!") */
+.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid,
+.login-verify-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
   display: block;
 }
 
@@ -937,4 +938,362 @@ a.btn-primary {
   .form-title {
     font-size: 22px;
   }
+}
+
+/* ==========================================================================
+   15. TELA INICIAL (INÍCIO / HOME) — Figma: "Início — PACE AI" #2036:109
+   ========================================================================== */
+
+/* Ajuste do screen-card para a home (sem overflow hidden para o nav fixo) */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Área de conteúdo rolável (acima do bottom-nav) */
+.home-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px; /* espaço para o bottom-nav fixo */
+  scrollbar-width: none;
+}
+.home-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Cabeçalho do App (Logo + Perfil) — Figma #2036:117 */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+}
+
+/* Botão de perfil — Figma #2104:4 (retângulo 38x38) + #2036:121 */
+.home-profile-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: border-color var(--transition-default), color var(--transition-default);
+}
+.home-profile-btn:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+/* ---- Saudação — Figma #2036:124 e #2036:125 */
+.home-greeting {
+  padding: 4px 20px 16px;
+}
+.home-greeting-title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+.home-greeting-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* ---- Card de Treino — Figma #2104:5 (card-bg) */
+.home-workout-card {
+  margin: 0 20px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Cabeçalho interno do card */
+.workout-card-header {
+  padding: 18px 16px 12px;
+}
+
+/* Label "PRÓXIMO TREINO" — Figma #2104:6 */
+.workout-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Título do Treino — Figma #2104:7 */
+.workout-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.027em;
+  line-height: 1.1;
+}
+
+/* Descrição do treino — Figma #2104:8 */
+.workout-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ---- Carrossel de Exercícios — Figma #2104:9 ao #2104:17 */
+.workout-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Slide individual */
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+.carousel-slide.active {
+  display: block;
+}
+
+/* Wrapper da imagem */
+.carousel-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #1a1a1a;
+  border-radius: 0;
+}
+
+/* Imagem do exercício — Figma #2104:10 */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Gradiente sobre a imagem — Figma #2104:11 */
+.carousel-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
+}
+
+/* Legenda do exercício sobre a imagem — Figma #2104:12 e #2104:13 */
+.carousel-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.carousel-exercise-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+.carousel-exercise-index {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(245, 247, 245, 0.6);
+}
+
+/* Placeholder para slides sem imagem */
+.carousel-placeholder {
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-placeholder-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  color: var(--color-border-subtle);
+}
+
+/* Botões de navegação do carrossel — Figma #2104:14 ao #2104:17 */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background var(--transition-default);
+}
+.carousel-btn:hover {
+  background: rgba(0, 255, 102, 0.3);
+  border-color: var(--color-accent-green);
+}
+.carousel-btn-prev {
+  left: 8px;
+}
+.carousel-btn-next {
+  right: 8px;
+}
+
+/* ---- Indicadores do Carrossel — Figma #2104:18 ao #2104:31 */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0 8px;
+}
+.carousel-dot {
+  width: 6px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-border-subtle);
+  cursor: pointer;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.carousel-dot.active {
+  width: 20px;
+  background: var(--color-accent-green);
+}
+
+/* ---- CTA do Card — Figma #2104:21 e #2104:22 */
+.workout-card-actions {
+  padding: 4px 16px 16px;
+}
+.workout-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-default), opacity var(--transition-default);
+}
+.workout-cta-btn:hover {
+  background: var(--color-accent-hover);
+}
+.workout-cta-btn .btn-arrow {
+  stroke: var(--color-bg-app);
+  flex-shrink: 0;
+}
+
+/* ---- Dica do rodapé */
+.home-footer-tip {
+  margin: 16px 20px 8px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: rgba(0, 255, 102, 0.06);
+  border: 1px solid rgba(0, 255, 102, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  line-height: 1.5;
+}
+.home-footer-tip strong {
+  color: var(--color-accent-green);
+  font-weight: 600;
+}
+.home-footer-tip em {
+  font-style: normal;
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   16. BOTTOM NAVIGATION BAR — Figma: #2124:28
+   ========================================================================== */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  background: var(--color-bg-app);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+  z-index: 100;
+}
+
+/* Cada aba do bottom-nav — Figma: tab-plano, tab-meu-treino, tab-aulas, tab-plano */
+.bottom-nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px 0;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  transition: color var(--transition-default);
+  min-height: 55px;
+}
+
+/* Ícone do bottom-nav */
+.bottom-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+.bottom-nav-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Label do bottom-nav */
+.bottom-nav-label {
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Estado ativo — Figma: label "Início" com fill #00FF66 */
+.bottom-nav-tab.active {
+  color: var(--color-accent-green);
+}
+.bottom-nav-tab:hover:not(.active) {
+  color: var(--color-text-primary);
 }
