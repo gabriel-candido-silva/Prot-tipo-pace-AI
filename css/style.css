@@ -496,8 +496,9 @@ body {
   color: var(--color-accent-green);
 }
 
-/* Alerta de Código Incorreto (Figma: "Código incorreto!") */
-.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
+/* Alerta de Código Incorreto — cadastro e login (Figma: "Código incorreto!") */
+.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid,
+.login-verify-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
   display: block;
 }
 
