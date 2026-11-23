@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel do Personal - PACE AI</title>
+
+    <!-- Fonte Inter do Google Fonts (usada no Figma) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Folha de Estilos Externa -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="desktop-body">
+    <div class="desktop-layout">
+      <!-- SIDEBAR LATERAL (Largura 216px no Figma #2010:154) -->
+      <aside class="desktop-sidebar">
+        <!-- Logo PACE AI -->
+        <div class="desktop-logo">
+          <svg class="logo-pulse" width="22" height="22" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M42.5 22H37.416C36.5201 21.9981 35.6482 22.2897 34.9337 22.8302C34.2192 23.3707 33.7014 24.1304 33.4595 24.993L28.642 42.131C28.6109 42.2375 28.5462 42.331 28.4575 42.3975C28.3688 42.464 28.2609 42.5 28.15 42.5C28.0391 42.5 27.9312 42.464 27.8425 42.3975C27.7538 42.331 27.6891 42.2375 27.658 42.131L16.342 1.869C16.311 1.76255 16.2462 1.66903 16.1575 1.6025C16.0688 1.53597 15.9609 1.5 15.85 1.5C15.7391 1.5 15.6312 1.53597 15.5425 1.6025C15.4538 1.66903 15.389 1.76255 15.358 1.869L10.5405 19.007C10.2996 19.8663 9.78483 20.6235 9.07447 21.1636C8.36411 21.7038 7.49691 21.9974 6.6045 22H1.5" stroke="#00FF66" stroke-width="3" stroke-linecap="round" />
+          </svg>
+          <span class="desktop-logo-text">PACE <span class="logo-accent">AI</span></span>
+        </div>
+
+        <span class="desktop-nav-header">ÁREA DO PERSONAL</span>
+
+        <!-- Menu de Navegação -->
+        <nav class="desktop-nav">
+          <a href="#" class="desktop-nav-item active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>Visão geral</span>
+          </a>
+          <a href="#" class="desktop-nav-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Alunos</span>
+          </a>
+          <a href="#" class="desktop-nav-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>Recomendações</span>
+            <span class="nav-badge">3</span>
+          </a>
+          <a href="#" class="desktop-nav-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>Base de conhecimento</span>
+          </a>
+          <a href="#" class="desktop-nav-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>Relatórios</span>
+          </a>
+        </nav>
+
+        <!-- Bloco de Status da Base (#2010:156) -->
+        <div class="desktop-base-status">
+          <div class="base-status-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h4 class="base-status-title">Sua expertise.<br />A inteligência da IA.</h4>
+          <p class="base-status-desc">
+            Base v2.4 ativa<br />
+            84 exercícios validados<br />
+            27 regras de segurança
+          </p>
+        </div>
+
+        <!-- Rodapé da Sidebar -->
+        <div class="desktop-sidebar-footer">
+          <a href="#" class="desktop-nav-item config-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Configurações</span>
+          </a>
+
+          <div class="desktop-user-profile">
+            <div class="user-avatar-initials">MC</div>
+            <div class="user-info">
+              <span class="user-name">Mariana Costa</span>
+              <span class="user-cref">CREF 012345-G/SP</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="desktop-main">
+        <!-- Barra de Topo / Header Global -->
+        <header class="desktop-topbar">
+          <div class="desktop-breadcrumb">
+            <span>Área profissional / Visão geral</span>
+          </div>
+
+          <div class="desktop-top-actions">
+            <div class="desktop-search-bar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" placeholder="Buscar aluno, exercício ou regra" readonly />
+            </div>
+
+            <button class="desktop-icon-btn" aria-label="Notificações">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Cabeçalho de Boas-Vindas da Página -->
+        <section class="desktop-page-header">
+          <div class="header-titles">
+            <h1 class="page-title">Bom dia, Mariana.</h1>
+            <p class="page-subtitle">Seus alunos evoluem. Você mantém o controle.</p>
+          </div>
+          <div class="header-controls">
+            <span class="current-date">Ter, 06 out 2026 · 10:35</span>
+            <button class="btn-primary-desktop">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Adicionar aluno</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- 4 Indicadores Rápidos (KPIs #2010:160 a #2010:163) -->
+        <section class="desktop-kpi-grid">
+          <div class="kpi-card">
+            <span class="kpi-value">12</span>
+            <span class="kpi-label">Alunos ativos</span>
+            <span class="kpi-subtext">+2 neste mês</span>
+          </div>
+
+          <div class="kpi-card">
+            <span class="kpi-value">86%</span>
+            <span class="kpi-label">Constância média</span>
+            <span class="kpi-subtext">+8 pontos em 30 dias</span>
+          </div>
+
+          <div class="kpi-card">
+            <span class="kpi-value">3</span>
+            <span class="kpi-label">Recomendações da IA</span>
+            <span class="kpi-subtext highlight">Aguardam sua revisão</span>
+          </div>
+
+          <div class="kpi-card">
+            <span class="kpi-value">84</span>
+            <span class="kpi-label">Exercícios na base</span>
+            <span class="kpi-subtext">100% validados por você</span>
+          </div>
+        </section>
+
+        <!-- Grid Principal de Conteúdo (Tabela de Alunos à esquerda + Recomendações da IA à direita) -->
+        <div class="desktop-content-grid">
+          <!-- Coluna Esquerda: Tabela de Alunos e Aluno Selecionado -->
+          <div class="desktop-left-col">
+            <!-- Card da Tabela de Alunos (#2010:164) -->
+            <div class="desktop-card students-table-card">
+              <div class="card-header">
+                <h2 class="card-title">Seus alunos</h2>
+                <a href="#" class="card-link">Ver os 12 alunos →</a>
+              </div>
+
+              <!-- Filtros por Chips -->
+              <div class="table-chips">
+                <button class="chip active">Todos (12)</button>
+                <button class="chip">Precisam de atenção (3)</button>
+              </div>
+
+              <!-- Tabela Responsiva de Alunos -->
+              <div class="table-wrapper">
+                <table class="students-table">
+                  <thead>
+                    <tr>
+                      <th>ALUNO</th>
+                      <th>OBJETIVO</th>
+                      <th>CONSTÂNCIA</th>
+                      <th>ÚLTIMA SESSÃO</th>
+                      <th>STATUS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Linha 1: Lucas Almeida (Selecionado) -->
+                    <tr class="selected-row">
+                      <td class="student-cell">
+                        <div class="student-avatar">LA</div>
+                        <div class="student-meta">
+                          <span class="student-name">Lucas Almeida</span>
+                          <span class="student-sub">Intermediário · Joelho direito</span>
+                        </div>
+                      </td>
+                      <td>Hipertrofia</td>
+                      <td>
+                        <div class="constancy-bar-wrap">
+                          <span>92%</span>
+                          <div class="bar-track">
+                            <div class="bar-fill" style="width: 92%;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Hoje · 10:26</td>
+                      <td><span class="status-badge badge-green">Evoluindo</span></td>
+                    </tr>
+
+                    <!-- Linha 2: Ana Ribeiro -->
+                    <tr>
+                      <td class="student-cell">
+                        <div class="student-avatar">AR</div>
+                        <div class="student-meta">
+                          <span class="student-name">Ana Ribeiro</span>
+                          <span class="student-sub">Plano personalizado</span>
+                        </div>
+                      </td>
+                      <td>Perda de peso</td>
+                      <td>
+                        <div class="constancy-bar-wrap">
+                          <span>83%</span>
+                          <div class="bar-track">
+                            <div class="bar-fill" style="width: 83%;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Hoje · 08:15</td>
+                      <td><span class="status-badge badge-yellow">Revisar RPE</span></td>
+                    </tr>
+
+                    <!-- Linha 3: João Mendes -->
+                    <tr>
+                      <td class="student-cell">
+                        <div class="student-avatar">JM</div>
+                        <div class="student-meta">
+                          <span class="student-name">João Mendes</span>
+                          <span class="student-sub">Plano personalizado</span>
+                        </div>
+                      </td>
+                      <td>Força</td>
+                      <td>
+                        <div class="constancy-bar-wrap">
+                          <span>100%</span>
+                          <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Ontem · 19:04</td>
+                      <td><span class="status-badge badge-green">Em dia</span></td>
+                    </tr>
+
+                    <!-- Linha 4: Camila Santos -->
+                    <tr>
+                      <td class="student-cell">
+                        <div class="student-avatar">CS</div>
+                        <div class="student-meta">
+                          <span class="student-name">Camila Santos</span>
+                          <span class="student-sub">Plano personalizado</span>
+                        </div>
+                      </td>
+                      <td>Condicionamento</td>
+                      <td>
+                        <div class="constancy-bar-wrap">
+                          <span>75%</span>
+                          <div class="bar-track">
+                            <div class="bar-fill" style="width: 75%;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>Ontem · 07:40</td>
+                      <td><span class="status-badge badge-green">Em dia</span></td>
+                    </tr>
+
+                    <!-- Linha 5: Pedro Lima -->
+                    <tr>
+                      <td class="student-cell">
+                        <div class="student-avatar">PL</div>
+                        <div class="student-meta">
+                          <span class="student-name">Pedro Lima</span>
+                          <span class="student-sub">Plano personalizado</span>
+                        </div>
+                      </td>
+                      <td>Hipertrofia</td>
+                      <td>
+                        <div class="constancy-bar-wrap">
+                          <span>67%</span>
+                          <div class="bar-track">
+                            <div class="bar-fill" style="width: 67%;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>02 out · 18:30</td>
+                      <td><span class="status-badge badge-yellow">Baixa adesão</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="card-footer-info">
+                Exibindo 5 de 12 alunos · Atualizado há 2 minutos
+              </div>
+            </div>
+
+            <!-- Card de Aluno Selecionado: Lucas Almeida (#2010:168) -->
+            <div class="desktop-card student-detail-card">
+              <div class="detail-split">
+                <div class="detail-left">
+                  <span class="detail-tag">ALUNO SELECIONADO</span>
+                  <h3 class="detail-name">Lucas Almeida</h3>
+                  <p class="detail-info">
+                    Hipertrofia · Intermediário<br />
+                    Academia · Ter / Qui / Sáb<br />
+                    Joelho direito: evitar impacto
+                  </p>
+                </div>
+                <div class="detail-right">
+                  <div class="detail-status-pill">
+                    <span class="pill-dot"></span>
+                    <span>Superiores A concluído hoje</span>
+                  </div>
+                  <p class="detail-session-info">
+                    Supino: 3 × 10 com 18 kg/halter<br />
+                    RPE 7 · Sem dor · Constância 92%
+                  </p>
+                  <a href="#" class="detail-link">Abrir histórico e plano →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Recomendações da IA (#2010:170) -->
+          <div class="desktop-right-col">
+            <div class="desktop-card recommendations-card">
+              <div class="rec-header">
+                <div class="rec-title-wrap">
+                  <h2 class="card-title">Recomendações da IA</h2>
+                  <span class="badge-new-recs">3 NOVAS</span>
+                </div>
+                <p class="rec-subtitle">Nenhuma progressão é aplicada sem a sua aprovação.</p>
+              </div>
+
+              <!-- Lista de 3 Recomendações -->
+              <div class="rec-list">
+                <!-- Recomendação 1: Lucas Almeida -->
+                <div class="rec-item">
+                  <div class="rec-item-header">
+                    <span class="rec-student">Lucas Almeida</span>
+                    <span class="rec-confidence">94% confiança</span>
+                  </div>
+                  <h4 class="rec-action-title">Supino: 18 → 20 kg/halter</h4>
+                  <p class="rec-action-desc">
+                    Duas sessões com RPE 7, técnica estável e sem dor. Incremento dentro do limite de 2 kg.
+                  </p>
+                  <div class="rec-action-btn-wrap">
+                    <button class="btn-rec-action">Revisar e aprovar</button>
+                  </div>
+                </div>
+
+                <!-- Recomendação 2: Ana Ribeiro -->
+                <div class="rec-item">
+                  <div class="rec-item-header">
+                    <span class="rec-student">Ana Ribeiro</span>
+                    <span class="rec-confidence">91% confiança</span>
+                  </div>
+                  <h4 class="rec-action-title">Reduzir o volume em 20%</h4>
+                  <p class="rec-action-desc">
+                    RPE 9 em duas sessões. Sugerir uma semana de recuperação e reavaliar.
+                  </p>
+                  <div class="rec-action-btn-wrap">
+                    <button class="btn-rec-action">Revisar ajuste</button>
+                  </div>
+                </div>
+
+                <!-- Recomendação 3: Pedro Lima -->
+                <div class="rec-item">
+                  <div class="rec-item-header">
+                    <span class="rec-student">Pedro Lima</span>
+                    <span class="rec-confidence">87% confiança</span>
+                  </div>
+                  <h4 class="rec-action-title">Revisar a frequência semanal</h4>
+                  <p class="rec-action-desc">
+                    Constância em 67%. Propor 2 dias de treino para facilitar o retorno à rotina.
+                  </p>
+                  <div class="rec-action-btn-wrap">
+                    <button class="btn-rec-action">Revisar ajuste</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção Inferior: Calibração da Base de Conhecimento (#2010:190) -->
+        <section class="desktop-card calibration-card">
+          <div class="calibration-header">
+            <div class="calib-left">
+              <div class="calib-title-row">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <h2 class="card-title">Calibração da base de conhecimento</h2>
+                <span class="badge-active-v2">V2.4 ATIVA</span>
+              </div>
+              <p class="calib-desc">
+                Sua metodologia define os limites das recomendações, substituições e progressões da IA.
+              </p>
+            </div>
+            <div class="calib-right">
+              <button class="btn-primary-desktop">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <span>Publicar revisão</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Grid de Regras e Fontes -->
+          <div class="calibration-grid">
+            <!-- Bloco de Metodologia / Parâmetros -->
+            <div class="calib-parameters-col">
+              <div class="calib-params-row">
+                <div class="calib-param-box">
+                  <span class="param-label">RPE alvo · Hipertrofia</span>
+                  <span class="param-value">7–8</span>
+                </div>
+                <div class="calib-param-box">
+                  <span class="param-label">Progressão máxima</span>
+                  <span class="param-value">2 kg por halter</span>
+                </div>
+                <div class="calib-param-box">
+                  <span class="param-label">Ciclo padrão</span>
+                  <span class="param-value">4 semanas</span>
+                </div>
+              </div>
+
+              <!-- Regra Específica -->
+              <div class="calib-rule-box">
+                <div class="rule-header">
+                  <span class="rule-badge">JOELHO</span>
+                  <span class="rule-title">Regra de exclusão e substituição</span>
+                </div>
+                <p class="rule-desc">
+                  Evitar impacto e agachamento profundo quando houver desconforto. Priorizar amplitudes sem dor e alternativas previamente validadas.
+                </p>
+              </div>
+
+              <!-- Switch / Checkbox ilustrativo sem JS -->
+              <div class="calib-switch-row">
+                <label class="custom-switch-label">
+                  <input type="checkbox" checked disabled />
+                  <span class="switch-ui"></span>
+                  <span class="switch-text">Exigir aprovação profissional para progressões de carga</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Bloco de Fontes e Validação -->
+            <div class="calib-sources-col">
+              <h3 class="sources-title">Fontes e validação</h3>
+
+              <div class="sources-list">
+                <div class="source-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7AEA9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  <div class="source-meta">
+                    <span class="source-name">Protocolo de hipertrofia.pdf</span>
+                    <span class="source-sub">Revisado · 02 out 2026</span>
+                  </div>
+                </div>
+
+                <div class="source-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7AEA9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                  </svg>
+                  <div class="source-meta">
+                    <span class="source-name">Catálogo de exercícios</span>
+                    <span class="source-sub">84 movimentos · 100% validados</span>
+                  </div>
+                </div>
+
+                <div class="source-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A7AEA9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  <div class="source-meta">
+                    <span class="source-name">Restrições e adaptações.pdf</span>
+                    <span class="source-sub">27 regras · Revisado hoje</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sources-footer">
+                Última publicação: Mariana Costa<br />
+                06 out 2026, 09:12 · <a href="#" class="history-link">Histórico de versões →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Rodapé do Sistema -->
+        <footer class="desktop-footer">
+          <span class="footer-privacy">Dados de saúde protegidos · Acesso restrito à profissional responsável</span>
+          <span class="footer-sync">● Todos os dados sincronizados</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
