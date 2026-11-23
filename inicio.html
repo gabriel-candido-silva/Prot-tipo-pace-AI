@@ -63,7 +63,7 @@
 
           <!-- Saudação do Usuário (Figma #2036:124 e #2036:125) -->
           <section class="home-greeting" aria-label="Saudação">
-            <h1 class="home-greeting-title">Olá! 👋</h1>
+            <h1 class="home-greeting-title">Olá! </h1>
             <p class="home-greeting-sub">Vamos ao próximo treino?</p>
           </section>
 
@@ -212,7 +212,7 @@
 
             <!-- Botão: Ver Treino Completo (Figma #2104:21 e #2104:22) -->
             <div class="workout-card-actions">
-              <a href="#" class="btn-primary workout-cta-btn" role="button">
+              <a href="meu-treino.html" class="btn-primary workout-cta-btn" role="button">
                 <span>Ver treino completo</span>
                 <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
@@ -222,10 +222,24 @@
 
           </section>
 
-          <!-- Mensagem motivacional de rodapé (Figma #2107:14 implícito) -->
-          <p class="home-footer-tip">
-            💡 <strong>Ótimo trabalho!</strong> Para ver suas metas, vá até a aba <em>Progresso</em>
-          </p>
+          <!-- Card de Dica (Figma #2107:14) -->
+          <aside class="home-tip-card" aria-label="Dica de navegação">
+            <div class="home-tip-accent" aria-hidden="true"></div>
+            <span class="home-tip-badge">Dica</span>
+            <p class="home-tip-text">
+              Em ‘Meu Treino’, toque neste ícone<br />
+              para ver a imagem do exercício.
+            </p>
+            <div class="home-tip-icon" aria-hidden="true">
+              <svg width="35" height="20" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </aside>
 
         </div><!-- fim .home-scroll-content -->
 
@@ -243,7 +257,7 @@
           </a>
 
           <!-- Aba: Meu Treino -->
-          <a href="#" class="bottom-nav-tab" aria-label="Meu Treino">
+          <a href="meu-treino.html" class="bottom-nav-tab" aria-label="Meu Treino">
             <span class="bottom-nav-icon" aria-hidden="true">
               <!-- Ícone Halter / Meu Treino -->
               <svg width="28" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,7 +272,7 @@
           </a>
 
           <!-- Aba: Pace AI -->
-          <a href="#" class="bottom-nav-tab" aria-label="Pace AI">
+          <a href="pace-ai.html" class="bottom-nav-tab" aria-label="Pace AI">
             <span class="bottom-nav-icon" aria-hidden="true">
               <!-- Ícone Pulso/AI -->
               <svg width="22" height="22" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -269,7 +283,7 @@
           </a>
 
           <!-- Aba: Progresso -->
-          <a href="#" class="bottom-nav-tab" aria-label="Progresso">
+          <a href="progresso.html" class="bottom-nav-tab" aria-label="Progresso">
             <span class="bottom-nav-icon" aria-hidden="true">
               <!-- Ícone Gráfico de Progresso -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

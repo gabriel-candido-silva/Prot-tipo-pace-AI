@@ -1058,7 +1058,9 @@ a.btn-primary {
 /* ---- Carrossel de Exercícios — Figma #2104:9 ao #2104:17 */
 .workout-carousel {
   position: relative;
-  width: 100%;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -1075,9 +1077,10 @@ a.btn-primary {
 .carousel-img-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 330 / 220;
   background: #1a1a1a;
-  border-radius: 0;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Imagem do exercício — Figma #2104:10 */
@@ -1086,7 +1089,7 @@ a.btn-primary {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 0;
+  border-radius: 12px;
 }
 
 /* Gradiente sobre a imagem — Figma #2104:11 */
@@ -1216,24 +1219,52 @@ a.btn-primary {
   flex-shrink: 0;
 }
 
-/* ---- Dica do rodapé */
-.home-footer-tip {
-  margin: 16px 20px 8px;
+/* ---- Card de Dica — Figma #2107:14 */
+.home-tip-card {
+  position: relative;
+  margin: 16px 20px 12px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px 8px 16px;
+  overflow: hidden;
+}
+
+.home-tip-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-accent-green);
+  border-radius: 12px 0 0 12px;
+}
+
+.home-tip-badge {
   font-size: 12px;
-  color: var(--color-text-secondary);
-  background: rgba(0, 255, 102, 0.06);
-  border: 1px solid rgba(0, 255, 102, 0.15);
-  border-radius: 10px;
-  padding: 10px 14px;
-  line-height: 1.5;
-}
-.home-footer-tip strong {
-  color: var(--color-accent-green);
   font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-right: 14px;
+  flex-shrink: 0;
 }
-.home-footer-tip em {
-  font-style: normal;
-  color: var(--color-text-primary);
+
+.home-tip-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 17px;
+  flex: 1;
+}
+
+.home-tip-icon {
+  margin-left: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ==========================================================================
@@ -1291,9 +1322,1102 @@ a.btn-primary {
 }
 
 /* Estado ativo — Figma: label "Início" com fill #00FF66 */
-.bottom-nav-tab.active {
+/* ==========================================================================
+   17. TELA MEU TREINO (WORKOUT SCREEN) — Figma #2029:218
+   ========================================================================== */
+.workout-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Seletor de Treino / Abas A, B, C, D — Figma #2031:256 */
+.workout-day-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.workout-day-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.workout-day-btn:hover:not(.active) {
+  border-color: var(--color-accent-green);
+  color: var(--color-text-primary);
+}
+
+.workout-day-btn.active {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-weight: 700;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Área de Rolagem dos Exercícios */
+.workout-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 100px;
+  scrollbar-width: none;
+}
+.workout-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Lista de Cards de Exercício */
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Individual de Exercício — Figma #2031:171 */
+.exercise-card {
+  height: 56px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color var(--transition-default), background var(--transition-default);
+}
+
+.exercise-card:hover {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.03);
+}
+
+/* Card Expandido com Séries e Cargas (Figma #2093:1373) */
+.exercise-card-expanded {
+  height: auto;
+  min-height: 222px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 16px;
+  gap: 16px;
+  border-color: var(--color-accent-green);
+  background: #141715;
+}
+
+.exercise-card-header-expanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exercise-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exercise-subtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.exercise-collapse-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 255, 102, 0.1);
+  text-decoration: none;
+}
+
+/* Tabela de Séries */
+.exercise-sets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exercise-sets-header {
+  display: grid;
+  grid-template-columns: 36px 60px 1fr 1fr 65px;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.set-col-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-helper);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.exercise-set-row {
+  display: grid;
+  grid-template-columns: 36px 60px 1fr 1fr 65px;
+  gap: 8px;
+  align-items: center;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 8px 6px;
+}
+
+.exercise-set-row.set-current {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.05);
+}
+
+.exercise-set-row.set-completed {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+.exercise-set-row.set-completed .btn-check-set {
+  background: #153523;
+  border: 1px solid var(--color-accent-green);
+}
+
+.set-num-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.set-data-prev {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.set-data-target,
+.set-data-reps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.set-weight-val,
+.set-reps-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.set-input-weight,
+.set-input-reps {
+  width: 44px;
+  height: 32px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color var(--transition-default);
+}
+
+.set-input-weight:focus,
+.set-input-reps:focus {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+/* Remove setas do input number */
+.set-input-weight::-webkit-outer-spin-button,
+.set-input-weight::-webkit-inner-spin-button,
+.set-input-reps::-webkit-outer-spin-button,
+.set-input-reps::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.set-input-weight,
+.set-input-reps {
+  -moz-appearance: textfield;
+}
+
+.set-unit {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.set-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.set-status-badge.set-done {
+  background: rgba(0, 255, 102, 0.15);
   color: var(--color-accent-green);
 }
-.bottom-nav-tab:hover:not(.active) {
+
+.set-status-badge.set-pending {
+  background: rgba(167, 174, 169, 0.15);
+  color: var(--color-text-secondary);
+}
+
+.btn-check-set {
+  width: 100%;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--color-accent-green);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rodapé do Card */
+.exercise-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.exercise-feedback-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 255, 102, 0.05);
+  border: 1px solid rgba(0, 255, 102, 0.12);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.feedback-text {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.exercise-actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-primary-sm {
+  flex: 1;
+  height: 42px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-primary-sm:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-sm {
+  flex: 1;
+  height: 42px;
+  padding: 0 14px;
+  background: var(--color-bg-app);
   color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary-sm:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   18. TELA PACE AI — ALINHAMENTO DO USUÁRIO (pace-ai.html)
+   ========================================================================== */
+.pace-ai-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.pace-ai-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px 100px;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pace-ai-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Apresentação da IA */
+.ai-intro-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-badge-row {
+  display: flex;
+}
+
+.ai-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.ai-intro-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ai-intro-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Grade de Opções de Alinhamento */
+.ai-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Individual de Opção de IA */
+.ai-action-card {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  transition: all var(--transition-default);
+}
+
+.ai-action-card:hover {
+  border-color: var(--color-accent-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 255, 102, 0.08);
+}
+
+.ai-card-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ai-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-card-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 255, 102, 0.1);
+  color: var(--color-accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.ai-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.ai-card-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Botão de Ação do Card */
+.btn-ai-card {
+  height: 44px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all var(--transition-default);
+}
+
+.ai-action-card:hover .btn-ai-card {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+}
+
+/* ==========================================================================
+   19. TELAS DE CHAT COM A IA (chat-montar-treino, chat-ajustar-rotina, chat-tirar-duvidas)
+   ========================================================================== */
+.chat-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg-app);
+}
+
+/* Cabeçalho do Chat */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-app);
+}
+
+.btn-chat-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+.btn-chat-back:hover {
+  color: var(--color-accent-green);
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-ai-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-ai-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-ai-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.chat-ai-status {
+  font-size: 11px;
+  color: var(--color-accent-green);
+  font-weight: 500;
+}
+
+/* Mensagens */
+.chat-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scrollbar-width: none;
+}
+.chat-messages-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-date-badge {
+  align-self: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border-subtle);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+/* Bolhas de Mensagem */
+.chat-bubble {
+  max-width: 86%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-bubble-ai {
+  align-self: flex-start;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble-user {
+  align-self: flex-end;
+  background: #143322;
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  color: var(--color-text-primary);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-timestamp {
+  font-size: 10px;
+  color: var(--color-text-helper);
+  align-self: flex-end;
+}
+
+/* Card Gerado Dentro da Mensagem */
+.chat-generated-card {
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-card-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-accent-green);
+  letter-spacing: 0.05em;
+}
+
+.chat-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.chat-card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.chat-card-list li strong {
+  color: var(--color-text-primary);
+}
+
+.chat-card-meta {
+  display: flex;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+/* Respostas Rápidas */
+.chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.quick-reply-chip {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-default);
+}
+
+.quick-reply-chip:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-text-primary);
+}
+
+.quick-reply-chip.active-chip {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+}
+
+/* Barra de Entrada */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 20px;
+  background: var(--color-bg-app);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.chat-text-input {
+  flex: 1;
+  height: 44px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 0 14px;
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color var(--transition-default);
+}
+
+.chat-text-input:focus {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+.chat-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-accent-green);
+  border: none;
+  color: var(--color-bg-app);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-default);
+}
+
+/* ==========================================================================
+   20. TELA PROGRESSO & DASHBOARD (progresso.html) — Figma #2001:627
+   ========================================================================== */
+.progress-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg-app);
+}
+
+.notif-badge-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-green);
+}
+
+.progress-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px 100px;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.progress-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Seção de Saudação */
+.progress-greeting-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-date-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.progress-main-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.progress-user-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.progress-tag-highlight {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-green);
+  background: #153523;
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.progress-tag-info {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Card de Destaque / Treino de Hoje */
+.progress-card-focus {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-accent-green);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+}
+
+.progress-card-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.progress-card-badge-right {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.progress-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 314 / 140;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.progress-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.progress-card-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progress-workout-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.progress-workout-muscles {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: -6px;
+}
+
+.progress-workout-metrics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0 4px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metric-intensity {
+  font-weight: 700;
+  color: var(--color-accent-green);
+}
+
+.progress-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.progress-cta-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Agenda Semanal */
+.progress-week-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.section-meta-text {
+  font-size: 11px;
+  color: var(--color-text-helper);
+}
+
+.agenda-days-row {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.agenda-day-card {
+  flex: 1;
+  height: 65px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+  transition: all var(--transition-default);
+}
+
+.agenda-day-card.today-active {
+  border-color: var(--color-accent-green);
+  background: #143322;
+}
+
+.agenda-day-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+}
+
+.agenda-day-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.today-active .agenda-day-num {
+  color: var(--color-accent-green);
+}
+
+.agenda-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.done-dot { background: var(--color-accent-green); }
+.active-dot { background: var(--color-accent-green); box-shadow: 0 0 6px var(--color-accent-green); }
+.next-dot { background: var(--color-accent-green); opacity: 0.5; }
+.rest-dot { background: transparent; }
+
+/* Resumo de Atividades */
+.progress-stats-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-big-val {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.stat-big-val.stat-green {
+  color: var(--color-accent-green);
+}
+
+.stat-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.exercise-card-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exercise-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+.exercise-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.exercise-arrow {
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  font-weight: 400;
+  user-select: none;
 }
