@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treino A Detalhes - PACE AI</title>
+
+    <!-- Fonte Inter do Google Fonts (usada no Figma) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Folha de Estilos Externa -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Container Principal da Tela do Aplicativo -->
+    <main class="app-container">
+      <div class="screen-card workout-screen">
+
+        <!-- Barra de Status do Dispositivo (Estilo iOS) -->
+        <header class="device-status-bar" aria-label="Status do dispositivo">
+          <span class="status-time">16:16</span>
+          <div class="status-icons">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sinal celular">
+              <path d="M1 9.5H3V10.5H1V9.5ZM5 7H7V10.5H5V7ZM9 4.5H11V10.5H9V4.5ZM13 1H15V10.5H13V1Z" fill="currentColor" />
+            </svg>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Wi-Fi">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M8 2.5C10.74 2.5 13.23 3.56 15.09 5.29L16 4.38C13.9 2.42 11.09 1.25 8 1.25C4.91 1.25 2.1 2.42 0 4.38L0.91 5.29C2.77 3.56 5.26 2.5 8 2.5ZM8 6C9.72 6 11.28 6.66 12.44 7.74L13.35 6.83C11.96 5.54 10.07 4.75 8 4.75C5.93 4.75 4.04 5.54 2.65 6.83L3.56 7.74C4.72 6.66 6.28 6 8 6ZM8 9.25C8.97 9.25 9.75 10.03 9.75 11H6.25C6.25 10.03 7.03 9.25 8 9.25Z" fill="currentColor" />
+            </svg>
+            <svg width="25" height="12" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Bateria">
+              <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="currentColor" />
+              <rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor" />
+              <path d="M23 4C23.8284 4 24.5 4.67157 24.5 5.5V6.5C24.5 7.32843 23.8284 8 23 8V4Z" fill="currentColor" />
+            </svg>
+          </div>
+        </header>
+
+        <!-- Topo: Marca PACE AI + Botão Perfil -->
+        <header class="home-header">
+          <div class="logo">
+            <svg class="logo-pulse" width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M42.5 22H37.416C36.5201 21.9981 35.6482 22.2897 34.9337 22.8302C34.2192 23.3707 33.7014 24.1304 33.4595 24.993L28.642 42.131C28.6109 42.2375 28.5462 42.331 28.4575 42.3975C28.3688 42.464 28.2609 42.5 28.15 42.5C28.0391 42.5 27.9312 42.464 27.8425 42.3975C27.7538 42.331 27.6891 42.2375 27.658 42.131L16.342 1.869C16.311 1.76255 16.2462 1.66903 16.1575 1.6025C16.0688 1.53597 15.9609 1.5 15.85 1.5C15.7391 1.5 15.6312 1.53597 15.5425 1.6025C15.4538 1.66903 15.389 1.76255 15.358 1.869L10.5405 19.007C10.2996 19.8663 9.78483 20.6235 9.07447 21.1636C8.36411 21.7038 7.49691 21.9974 6.6045 22H1.5" stroke="#00FF66" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <span class="logo-text" style="font-size: 28px;">PACE</span>
+            <span class="logo-ai" style="font-size: 22px;">AI</span>
+          </div>
+
+          <!-- Botão de Perfil do Usuário -->
+          <button class="home-profile-btn" aria-label="Perfil do usuário">
+            <svg width="12" height="15" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M7 8C9.20914 8 11 6.20914 11 4C11 1.79086 9.20914 0 7 0C4.79086 0 3 1.79086 3 4C3 6.20914 4.79086 8 7 8Z" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M1 16C1 13.2386 3.68629 11 7 11C10.3137 11 13 13.2386 13 16" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+        </header>
+
+        <!-- Seletor de Treino / Abas de Treino -->
+        <nav class="workout-day-selector" aria-label="Seleção de treino">
+          <a href="meu-treino.html" class="workout-day-btn active" aria-current="page" data-workout="A">A</a>
+          <button class="workout-day-btn" type="button" aria-pressed="false" data-workout="B">B</button>
+          <button class="workout-day-btn" type="button" aria-pressed="false" data-workout="C">C</button>
+          <button class="workout-day-btn" type="button" aria-pressed="false" data-workout="D">D</button>
+        </nav>
+
+        <!-- Lista de Exercícios Rolável com Treino Aberto / Expandido -->
+        <div class="workout-scroll-content">
+          <section class="exercise-list" aria-label="Lista de exercícios">
+
+            <!-- Card 1: Supino Reto Máquina — ABERTO / EXPANDIDO -->
+            <article class="exercise-card exercise-card-expanded active-workout-card">
+              <!-- Header do Card Expandido -->
+              <div class="exercise-card-header-expanded">
+                <div class="exercise-card-main">
+                  <span class="exercise-icon-wrap" aria-hidden="true">
+                    <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#00FF66" stroke-width="1.5"/>
+                      <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#00FF66" stroke-width="1.5"/>
+                      <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#00FF66" stroke-width="1.5"/>
+                      <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#00FF66" stroke-width="1.5"/>
+                      <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#00FF66" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <div class="exercise-title-group">
+                    <span class="exercise-name">Supino Reto Máquina</span>
+                    <span class="exercise-subtitle">3 séries · 10 repetições · 90s descanso</span>
+                  </div>
+                </div>
+                <a href="meu-treino.html" class="exercise-collapse-btn" aria-label="Fechar detalhes do exercício">
+                  <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M1 7L7 1L13 7" stroke="#00FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Tabela / Lista de Séries e Cargas (Modelo Vazio para Preenchimento) -->
+              <div class="exercise-sets-container">
+                <div class="exercise-sets-header">
+                  <span class="set-col-label">SÉRIE</span>
+                  <span class="set-col-label">ANTERIOR</span>
+                  <span class="set-col-label">CARGA (KG)</span>
+                  <span class="set-col-label">REPETIÇÕES</span>
+                  <span class="set-col-label">CONCLUIR</span>
+                </div>
+
+                <!-- Série 1 -->
+                <div class="exercise-set-row set-current" data-set="1">
+                  <span class="set-num-badge">1</span>
+                  <span class="set-data-prev">--</span>
+                  <div class="set-data-target">
+                    <input type="number" class="set-input-weight" placeholder="0" min="0" max="300" step="0.5" aria-label="Carga série 1" />
+                    <span class="set-unit">kg</span>
+                  </div>
+                  <div class="set-data-reps">
+                    <input type="number" class="set-input-reps" placeholder="0" min="0" max="100" aria-label="Repetições série 1" />
+                    <span class="set-unit">reps</span>
+                  </div>
+                  <button type="button" class="btn-check-set" aria-label="Concluir série 1">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L5 9L13 1" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Série 2 -->
+                <div class="exercise-set-row" data-set="2">
+                  <span class="set-num-badge">2</span>
+                  <span class="set-data-prev">--</span>
+                  <div class="set-data-target">
+                    <input type="number" class="set-input-weight" placeholder="0" min="0" max="300" step="0.5" aria-label="Carga série 2" />
+                    <span class="set-unit">kg</span>
+                  </div>
+                  <div class="set-data-reps">
+                    <input type="number" class="set-input-reps" placeholder="0" min="0" max="100" aria-label="Repetições série 2" />
+                    <span class="set-unit">reps</span>
+                  </div>
+                  <button type="button" class="btn-check-set" aria-label="Concluir série 2">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L5 9L13 1" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Série 3 -->
+                <div class="exercise-set-row" data-set="3">
+                  <span class="set-num-badge">3</span>
+                  <span class="set-data-prev">--</span>
+                  <div class="set-data-target">
+                    <input type="number" class="set-input-weight" placeholder="0" min="0" max="300" step="0.5" aria-label="Carga série 3" />
+                    <span class="set-unit">kg</span>
+                  </div>
+                  <div class="set-data-reps">
+                    <input type="number" class="set-input-reps" placeholder="0" min="0" max="100" aria-label="Repetições série 3" />
+                    <span class="set-unit">reps</span>
+                  </div>
+                  <button type="button" class="btn-check-set" aria-label="Concluir série 3">
+                    <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L5 9L13 1" stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Rodapé da Série / Ajuste Rápido de Carga -->
+              <div class="exercise-card-footer">
+                <div class="exercise-feedback-tip">
+                  <span class="feedback-icon">✍️</span>
+                  <p class="feedback-text">Preencha a carga e as repetições realizadas em cada série do seu treino.</p>
+                </div>
+                <div class="exercise-actions-row">
+                  <button type="button" class="btn-secondary-sm" id="btn-add-set">+ Adicionar série</button>
+                  <button type="button" class="btn-primary-sm" id="btn-save-sets">Salvar progresso</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Crucifixo Máquina -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Crucifixo Máquina</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+            <!-- Card 3: Puxada Frontal -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Puxada Frontal</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+            <!-- Card 4: Remada Baixa -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Remada Baixa</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+            <!-- Card 5: Voador -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Voador</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+            <!-- Card 6: Pulldown -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Pulldown</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+            <!-- Card 7: Abdominal -->
+            <article class="exercise-card">
+              <div class="exercise-card-main">
+                <span class="exercise-icon-wrap" aria-hidden="true">
+                  <svg width="30" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="#A7AEA9" stroke-width="1.5"/>
+                    <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="#A7AEA9" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="exercise-name">Abdominal</span>
+              </div>
+              <span class="exercise-arrow" aria-hidden="true">&gt;</span>
+            </article>
+
+          </section>
+        </div><!-- fim .workout-scroll-content -->
+
+        <!-- Navegação Inferior Fixa -->
+        <nav class="bottom-nav" aria-label="Navegação principal">
+          <!-- Aba: Início -->
+          <a href="inicio.html" class="bottom-nav-tab" aria-label="Início">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H15V15H9V21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Início</span>
+          </a>
+
+          <!-- Aba: Meu Treino (ativa) -->
+          <a href="meu-treino.html" class="bottom-nav-tab active" aria-current="page" aria-label="Meu Treino">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <svg width="28" height="18" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" y="6.5" width="5" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="5.5" y="3.5" width="4" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="26.5" y="6.5" width="5" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="26.5" y="3.5" width="4" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="9.5" y1="10" x2="26.5" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Meu Treino</span>
+          </a>
+
+          <!-- Aba: Pace AI -->
+          <a href="pace-ai.html" class="bottom-nav-tab" aria-label="Pace AI">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M42.5 22H37.416C36.5201 21.9981 35.6482 22.2897 34.9337 22.8302C34.2192 23.3707 33.7014 24.1304 33.4595 24.993L28.642 42.131C28.6109 42.2375 28.5462 42.331 28.4575 42.3975C28.3688 42.464 28.2609 42.5 28.15 42.5C28.0391 42.5 27.9312 42.464 27.8425 42.3975C27.7538 42.331 27.6891 42.2375 27.658 42.131L16.342 1.869C16.311 1.76255 16.2462 1.66903 16.1575 1.6025C16.0688 1.53597 15.9609 1.5 15.85 1.5C15.7391 1.5 15.6312 1.53597 15.5425 1.6025C15.4538 1.66903 15.389 1.76255 15.358 1.869L10.5405 19.007C10.2996 19.8663 9.78483 20.6235 9.07447 21.1636C8.36411 21.7038 7.49691 21.9974 6.6045 22H1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Pace AI</span>
+          </a>
+
+          <!-- Aba: Progresso -->
+          <a href="progresso.html" class="bottom-nav-tab" aria-label="Progresso">
+            <span class="bottom-nav-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="bottom-nav-label">Progresso</span>
+          </a>
+        </nav>
+
+      </div>
+    </main>
+  </body>
+</html>

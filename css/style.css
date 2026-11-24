@@ -1,0 +1,3283 @@
+/* ==========================================================================
+   1. RESET BÁSICO E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   2. VARIÁVEIS DE DESIGN SYSTEM (CORES E TIPOGRAFIA DO FIGMA)
+   ========================================================================== */
+:root {
+  /* Cores de Fundo e Superfícies */
+  --color-bg-body: #0d0f0e;
+  --color-bg-app: #121212;
+  --color-bg-card: #161917;
+  --color-bg-input: #121212;
+
+  /* Cores de Bordas e Divisores */
+  --color-border-subtle: #343a36;
+  --color-border-focus: #00ff66;
+
+  /* Cor de Destaque / Identidade PACE AI */
+  --color-accent-green: #00ff66;
+  --color-accent-hover: #00dd55;
+  --color-accent-active: #00b85c;
+  --color-accent-glow: rgba(0, 255, 102, 0.25);
+
+  /* Cores de Texto */
+  --color-text-primary: #f5f7f5;
+  --color-text-secondary: #a7aea9;
+  --color-text-helper: #737d76;
+  --color-text-placeholder: #5c6460;
+  --color-text-dark: #121212;
+
+  /* Cores de Erro e Alerta (Figma PACE AI) */
+  --color-error: #f01317;
+  --color-error-glow: rgba(240, 19, 23, 0.25);
+
+  /* Tipografia */
+  --font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Raios de Borda (Border Radius) */
+  --radius-input: 8px;
+  --radius-button: 12px;
+  --radius-card: 32px;
+
+  /* Transições suaves */
+  --transition-default: 0.2s ease;
+}
+
+/* ==========================================================================
+   3. CORPO E CONTAINER DE VISUALIZAÇÃO
+   ========================================================================== */
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(circle at 50% 10%, #1e2420 0%, #0d0f0e 100%);
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 402px; /* Largura idêntica ao frame do Figma (402 x 874) */
+  display: flex;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   4. ESTRUTURA DO CARD DA TELA (MOBILE SCREEN FRAME)
+   ========================================================================== */
+.screen-card {
+  width: 100%;
+  min-height: 720px;
+  background-color: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  padding: 36px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.6),
+    0 0 35px rgba(0, 255, 102, 0.04);
+}
+
+/* ==========================================================================
+   5. LOGO DA MARCA (PACE AI - NO LUGAR DAS ETAPAS)
+   ========================================================================== */
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  padding-top: 8px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  user-select: none;
+}
+
+/* Ícone do pulso cardíaco da marca */
+.logo-pulse {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px var(--color-accent-glow));
+}
+
+/* Texto 'PACE' */
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+/* Texto 'AI' em verde neon */
+.logo-ai {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-accent-green);
+  line-height: 1;
+  text-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+/* ==========================================================================
+   6. CABEÇALHO DO FORMULÁRIO (TÍTULO E SUBTÍTULO)
+   ========================================================================== */
+.form-intro {
+  margin-bottom: 28px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.form-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. FORMULÁRIO E CAMPOS DE ENTRADA (INPUTS)
+   ========================================================================== */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  height: 52px;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-input);
+  padding: 0 16px;
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition:
+    border-color var(--transition-default),
+    box-shadow var(--transition-default),
+    background-color var(--transition-default);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-placeholder);
+  font-weight: 400;
+}
+
+/* Estado de Foco do Input (Borda Verde e Glow sutil) */
+.form-input:focus {
+  background-color: #161a17;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+/* Texto de ajuda / instrução abaixo do e-mail */
+.form-helper {
+  font-size: 12px;
+  color: var(--color-text-helper);
+  line-height: 1.45;
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   8. VALIDAÇÃO PURA VIA CSS (:user-invalid e :has) - FIGMA PACE AI
+   ========================================================================== */
+
+/* Borda e foco em estado de erro */
+.form-input:user-invalid {
+  border-color: var(--color-error);
+}
+
+.form-input:user-invalid:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-glow);
+}
+
+/* Container das mensagens de alerta (acima do botão Continuar) */
+.form-error-container {
+  min-height: 18px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.form-error-alert {
+  display: none;
+  color: var(--color-error);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  animation: alertFadeIn 0.2s ease-in-out;
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Caso 1: Apenas CPF inválido */
+.signup-form:has(#cpf:user-invalid):not(:has(#email:user-invalid)) .alert-cpf {
+  display: block;
+}
+
+/* Caso 2: Apenas E-mail inválido */
+.signup-form:has(#email:user-invalid):not(:has(#cpf:user-invalid))
+  .alert-email {
+  display: block;
+}
+
+/* Caso 3: Ambos inválidos (Fiel ao Figma: "CPF e e-mail inválidos!") */
+.signup-form:has(#cpf:user-invalid):has(#email:user-invalid) .alert-both {
+  display: block;
+}
+
+/* Caso 4: Senha inválida (mínimo 8 caracteres, letras e números) */
+.signup-form:has(#password:user-invalid) .alert-password-invalid {
+  display: block;
+}
+
+/* ==========================================================================
+   9. CAMPO DE SENHA COM ÍCONE (MOSTRAR / OCULTAR)
+   ========================================================================== */
+.input-password-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input-password-wrapper .form-input {
+  padding-right: 48px;
+}
+
+.btn-toggle-password {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--color-text-placeholder);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  outline: none;
+  transition:
+    color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.btn-toggle-password:hover {
+  color: var(--color-text-primary);
+}
+
+.btn-toggle-password:focus-visible {
+  color: var(--color-accent-green);
+}
+
+/* ==========================================================================
+   10. ACEITE DOS TERMOS (CHECKBOX CUSTOMIZADO - FIGMA PACE AI)
+   ========================================================================== */
+.terms-group {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.custom-checkbox-box {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition:
+    border-color var(--transition-default),
+    background-color var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.custom-checkbox-box .check-icon {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity var(--transition-default),
+    transform var(--transition-default);
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box {
+  border-color: var(--color-accent-green);
+  background-color: #122117;
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.custom-checkbox-input:checked + .custom-checkbox-box .check-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.custom-checkbox-input:focus-visible + .custom-checkbox-box {
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.custom-checkbox-input:user-invalid + .custom-checkbox-box {
+  border-color: var(--color-error);
+}
+
+.terms-text {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.terms-link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-default);
+}
+
+.terms-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* ==========================================================================
+   11. CÓDIGO DE VERIFICAÇÃO DE 4 DÍGITOS (FIGMA PACE AI)
+   ========================================================================== */
+.code-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.code-digits-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.code-digit-input {
+  flex: 1;
+  max-width: 78px;
+  height: 56px;
+  background-color: var(--color-bg-input);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-button);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition:
+    border-color var(--transition-default),
+    box-shadow var(--transition-default),
+    background-color var(--transition-default);
+  -moz-appearance: textfield;
+}
+
+/* Remove setas de número em navegadores WebKit */
+.code-digit-input::-webkit-outer-spin-button,
+.code-digit-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code-digit-input:focus {
+  background-color: #161a17;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.code-digit-input:user-invalid {
+  border-color: var(--color-error);
+}
+
+.code-digit-input:user-invalid:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-glow);
+}
+
+/* Informações de Expiração e Reenvio */
+.code-timer-info {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.code-timer-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.code-resend-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-helper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--transition-default);
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+}
+
+.code-resend-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* Alerta de Código Incorreto — cadastro e login (Figma: "Código incorreto!") */
+.signup-form:has(.code-digit-input:user-invalid) .alert-code-invalid,
+.login-verify-form:has(.code-digit-input:user-invalid) .alert-code-invalid {
+  display: block;
+}
+
+/* Alertas da Tela de Login (Figma) */
+.login-form:has(#loginIdentifier:user-invalid) .alert-login-invalid {
+  display: block;
+}
+
+.login-form:has(#loginPassword:user-invalid) .alert-password-empty {
+  display: block;
+}
+
+/* Link 'Esqueceu sua senha?' (Figma) */
+.forgot-password-wrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.forgot-password-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-default);
+}
+
+.forgot-password-link:hover {
+  color: var(--color-accent-green);
+}
+
+/* Link de alternância entre Login e Cadastro */
+.auth-switch-text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.auth-switch-text a {
+  color: var(--color-accent-green);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.auth-switch-text a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   12. BOTÃO PRINCIPAL DE AÇÃO (CONTINUAR / CRIAR CONTA / VERIFICAR E-MAIL)
+   ========================================================================== */
+.form-actions {
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+  border: none;
+  border-radius: var(--radius-button);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px var(--color-accent-glow);
+  transition:
+    background-color var(--transition-default),
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+/* Efeito Hover do Botão */
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: 0 10px 24px rgba(0, 255, 102, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Efeito Active / Pressionado */
+.btn-primary:active {
+  background-color: var(--color-accent-active);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px var(--color-accent-glow);
+}
+
+.btn-arrow {
+  transition: transform var(--transition-default);
+}
+
+/* ==========================================================================
+   13. TELA DE ÊXITO / CONFIRMAÇÃO DE CONTA (FIGMA PACE AI)
+   ========================================================================== */
+.success-screen-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+/* Círculo do Check (Conta confirmada no Figma) */
+.success-icon-wrapper {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background-color: rgba(0, 255, 102, 0.06);
+  box-shadow: 0 0 25px var(--color-accent-glow);
+  animation: successPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-icon-wrapper .check-icon-large {
+  width: 30px;
+  height: 30px;
+  color: var(--color-accent-green);
+}
+
+/* Mensagem de Confirmação */
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: successFadeIn 0.3s ease-out 0.15s both;
+}
+
+.success-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.success-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+@keyframes successPop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   14. TELA INICIAL / BOAS-VINDAS (WELCOME SCREEN)
+   ========================================================================== */
+
+/* Barra de Status do Dispositivo (Estilo iOS do Figma) */
+.device-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 24px;
+  margin-bottom: 28px;
+  padding: 0 4px;
+}
+
+.status-time {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-text-primary);
+}
+
+.status-icons svg {
+  display: block;
+}
+
+/* Container de Boas-Vindas */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+/* Área de Marca e Logo Grande */
+.welcome-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: auto;
+}
+
+.welcome-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.welcome-pulse-icon {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 14px var(--color-accent-glow));
+}
+
+.welcome-logo-text {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.welcome-logo-ai {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-accent-green);
+  line-height: 1;
+  align-self: flex-start;
+  margin-top: 4px;
+  text-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+.welcome-tagline {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Bloco Hero (Títulos de Boas-Vindas) */
+.welcome-hero {
+  margin: 36px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.welcome-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Ações / Botões */
+.welcome-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Botão Secundário ("Já tenho conta") */
+.btn-secondary {
+  width: 100%;
+  height: 56px;
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-button);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #5c6460;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Suporte para link <a> como btn-primary */
+a.btn-primary {
+  text-decoration: none;
+}
+
+/* Texto Legal / Termos e Políticas */
+.welcome-legal {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-text-helper);
+  margin-bottom: 24px;
+}
+
+.welcome-legal a {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  transition: color var(--transition-default);
+}
+
+.welcome-legal a:hover {
+  color: var(--color-accent-green);
+}
+
+/* Indicador Inferior (Home Bar) */
+.home-indicator {
+  width: 134px;
+  height: 4px;
+  background-color: var(--color-text-secondary);
+  opacity: 0.5;
+  border-radius: 100px;
+  margin: 24px auto 0;
+}
+
+/* Botão Voltar (Navegação) */
+.back-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition:
+    color var(--transition-default),
+    transform var(--transition-default);
+}
+
+.btn-back:hover {
+  color: var(--color-accent-green);
+  transform: translateX(-3px);
+}
+
+/* ==========================================================================
+   10. RESPONSIVIDADE E AJUSTES PARA TELAS MENORES
+   ========================================================================== */
+@media (max-width: 420px) {
+  body {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .screen-card {
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    padding: 24px 20px 20px;
+  }
+
+  .logo-text {
+    font-size: 26px;
+  }
+
+  .logo-ai {
+    font-size: 22px;
+  }
+
+  .welcome-logo-text {
+    font-size: 44px;
+  }
+
+  .welcome-pulse-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .welcome-title {
+    font-size: 24px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+}
+
+/* ==========================================================================
+   15. TELA INICIAL (INÍCIO / HOME) — Figma: "Início — PACE AI" #2036:109
+   ========================================================================== */
+
+/* Ajuste do screen-card para a home (sem overflow hidden para o nav fixo) */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Área de conteúdo rolável (acima do bottom-nav) */
+.home-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px; /* espaço para o bottom-nav fixo */
+  scrollbar-width: none;
+}
+.home-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- Cabeçalho do App (Logo + Perfil) — Figma #2036:117 */
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 8px;
+}
+
+/* Botão de perfil — Figma #2104:4 (retângulo 38x38) + #2036:121 */
+.home-profile-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition:
+    border-color var(--transition-default),
+    color var(--transition-default);
+}
+.home-profile-btn:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+/* ---- Saudação — Figma #2036:124 e #2036:125 */
+.home-greeting {
+  padding: 4px 20px 16px;
+}
+.home-greeting-title {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+.home-greeting-sub {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* ---- Card de Treino — Figma #2104:5 (card-bg) */
+.home-workout-card {
+  margin: 0 20px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Cabeçalho interno do card */
+.workout-card-header {
+  padding: 18px 16px 12px;
+}
+
+/* Label "PRÓXIMO TREINO" — Figma #2104:6 */
+.workout-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Título do Treino — Figma #2104:7 */
+.workout-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.027em;
+  line-height: 1.1;
+}
+
+/* Descrição do treino — Figma #2104:8 */
+.workout-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ---- Carrossel de Exercícios — Figma #2104:9 ao #2104:17 */
+.workout-carousel {
+  position: relative;
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Slide individual */
+.carousel-slide {
+  display: none;
+  width: 100%;
+}
+.carousel-slide.active {
+  display: block;
+}
+
+/* Wrapper da imagem */
+.carousel-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 330 / 220;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Imagem do exercício — Figma #2104:10 */
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Gradiente sobre a imagem — Figma #2104:11 */
+.carousel-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  border-radius: 0 0 12px 12px;
+  pointer-events: none;
+}
+
+/* Legenda do exercício sobre a imagem — Figma #2104:12 e #2104:13 */
+.carousel-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.carousel-exercise-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+.carousel-exercise-index {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(245, 247, 245, 0.6);
+}
+
+/* Placeholder para slides sem imagem */
+.carousel-placeholder {
+  background: #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-placeholder-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  color: var(--color-border-subtle);
+}
+
+/* Botões de navegação do carrossel — Figma #2104:14 ao #2104:17 */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background var(--transition-default);
+}
+.carousel-btn:hover {
+  background: rgba(0, 255, 102, 0.3);
+  border-color: var(--color-accent-green);
+}
+.carousel-btn-prev {
+  left: 8px;
+}
+.carousel-btn-next {
+  right: 8px;
+}
+
+/* ---- Indicadores do Carrossel — Figma #2104:18 ao #2104:31 */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0 8px;
+}
+.carousel-dot {
+  width: 6px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-border-subtle);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
+}
+.carousel-dot.active {
+  width: 20px;
+  background: var(--color-accent-green);
+}
+
+/* ---- CTA do Card — Figma #2104:21 e #2104:22 */
+.workout-card-actions {
+  padding: 4px 16px 16px;
+}
+.workout-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background var(--transition-default),
+    opacity var(--transition-default);
+}
+.workout-cta-btn:hover {
+  background: var(--color-accent-hover);
+}
+.workout-cta-btn .btn-arrow {
+  stroke: var(--color-bg-app);
+  flex-shrink: 0;
+}
+
+/* ---- Card de Dica — Figma #2107:14 */
+.home-tip-card {
+  position: relative;
+  margin: 16px 20px 12px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 8px 14px 8px 16px;
+  overflow: hidden;
+}
+
+.home-tip-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-accent-green);
+  border-radius: 12px 0 0 12px;
+}
+
+.home-tip-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-right: 14px;
+  flex-shrink: 0;
+}
+
+.home-tip-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 17px;
+  flex: 1;
+}
+
+.home-tip-icon {
+  margin-left: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   16. BOTTOM NAVIGATION BAR — Figma: #2124:28
+   ========================================================================== */
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  background: var(--color-bg-app);
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 4px;
+  z-index: 100;
+}
+
+/* Cada aba do bottom-nav — Figma: tab-plano, tab-meu-treino, tab-aulas, tab-plano */
+.bottom-nav-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 4px 0;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  transition: color var(--transition-default);
+  min-height: 55px;
+}
+
+/* Ícone do bottom-nav */
+.bottom-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+.bottom-nav-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Label do bottom-nav */
+.bottom-nav-label {
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Estado ativo — Figma: label "Início" com fill #00FF66 */
+/* ==========================================================================
+   17. TELA MEU TREINO (WORKOUT SCREEN) — Figma #2029:218
+   ========================================================================== */
+.workout-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Seletor de Treino / Abas A, B, C, D — Figma #2031:256 */
+.workout-day-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.workout-day-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.workout-day-btn:hover:not(.active) {
+  border-color: var(--color-accent-green);
+  color: var(--color-text-primary);
+}
+
+.workout-day-btn.active {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-weight: 700;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* Área de Rolagem dos Exercícios */
+.workout-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 100px;
+  scrollbar-width: none;
+}
+.workout-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Lista de Cards de Exercício */
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Individual de Exercício — Figma #2031:171 */
+.exercise-card {
+  height: 56px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    border-color var(--transition-default),
+    background var(--transition-default);
+}
+
+.exercise-card:hover {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.03);
+}
+
+/* Card Expandido com Séries e Cargas (Figma #2093:1373) */
+.exercise-card-expanded {
+  height: auto;
+  min-height: 222px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 16px;
+  gap: 16px;
+  border-color: var(--color-accent-green);
+  background: #141715;
+}
+
+.exercise-card-header-expanded {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exercise-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.exercise-subtitle {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.exercise-collapse-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(0, 255, 102, 0.1);
+  text-decoration: none;
+}
+
+/* Tabela de Séries */
+.exercise-sets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exercise-sets-header {
+  display: grid;
+  grid-template-columns: 36px 60px 1fr 1fr 65px;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.set-col-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-helper);
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.exercise-set-row {
+  display: grid;
+  grid-template-columns: 36px 60px 1fr 1fr 65px;
+  gap: 8px;
+  align-items: center;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 8px 6px;
+}
+
+.exercise-set-row.set-current {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.05);
+}
+
+.exercise-set-row.set-completed {
+  border-color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.08);
+}
+
+.exercise-set-row.set-completed .btn-check-set {
+  background: #153523;
+  border: 1px solid var(--color-accent-green);
+}
+
+.set-num-badge {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.set-data-prev {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.set-data-target,
+.set-data-reps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.set-weight-val,
+.set-reps-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.set-input-weight,
+.set-input-reps {
+  width: 44px;
+  height: 32px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  color: var(--color-text-primary);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  transition: border-color var(--transition-default);
+}
+
+.set-input-weight:focus,
+.set-input-reps:focus {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+/* Remove setas do input number */
+.set-input-weight::-webkit-outer-spin-button,
+.set-input-weight::-webkit-inner-spin-button,
+.set-input-reps::-webkit-outer-spin-button,
+.set-input-reps::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.set-input-weight,
+.set-input-reps {
+  -moz-appearance: textfield;
+}
+
+.set-unit {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.set-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.set-status-badge.set-done {
+  background: rgba(0, 255, 102, 0.15);
+  color: var(--color-accent-green);
+}
+
+.set-status-badge.set-pending {
+  background: rgba(167, 174, 169, 0.15);
+  color: var(--color-text-secondary);
+}
+
+.btn-check-set {
+  width: 100%;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--color-accent-green);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rodapé do Card */
+.exercise-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.exercise-feedback-tip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 255, 102, 0.05);
+  border: 1px solid rgba(0, 255, 102, 0.12);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.feedback-text {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.exercise-actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-primary-sm {
+  flex: 1;
+  height: 42px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-primary-sm:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-sm {
+  flex: 1;
+  height: 42px;
+  padding: 0 14px;
+  background: var(--color-bg-app);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary-sm:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-accent-green);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   18. TELA PACE AI — ALINHAMENTO DO USUÁRIO (pace-ai.html)
+   ========================================================================== */
+.pace-ai-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.pace-ai-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px 100px;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.pace-ai-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Apresentação da IA */
+.ai-intro-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-badge-row {
+  display: flex;
+}
+
+.ai-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-green);
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.ai-intro-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.ai-intro-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Grade de Opções de Alinhamento */
+.ai-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Individual de Opção de IA */
+.ai-action-card {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  transition: all var(--transition-default);
+}
+
+.ai-action-card:hover {
+  border-color: var(--color-accent-green);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 255, 102, 0.08);
+}
+
+.ai-card-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--color-accent-glow) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ai-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ai-card-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 255, 102, 0.1);
+  color: var(--color-accent-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+  border: 1px solid var(--color-border-subtle);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.ai-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.ai-card-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Botão de Ação do Card */
+.btn-ai-card {
+  height: 44px;
+  width: 100%;
+  border-radius: 10px;
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all var(--transition-default);
+}
+
+.ai-action-card:hover .btn-ai-card {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+}
+
+/* ==========================================================================
+   19. TELAS DE CHAT COM A IA (chat-montar-treino, chat-ajustar-rotina, chat-tirar-duvidas)
+   ========================================================================== */
+.chat-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg-app);
+}
+
+/* Cabeçalho do Chat */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-app);
+}
+
+.btn-chat-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+.btn-chat-back:hover {
+  color: var(--color-accent-green);
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-ai-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(0, 255, 102, 0.1);
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-ai-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-ai-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.chat-ai-status {
+  font-size: 11px;
+  color: var(--color-accent-green);
+  font-weight: 500;
+}
+
+/* Mensagens */
+.chat-messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  scrollbar-width: none;
+}
+.chat-messages-container::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-date-badge {
+  align-self: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border-subtle);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+/* Bolhas de Mensagem */
+.chat-bubble {
+  max-width: 86%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-bubble-ai {
+  align-self: flex-start;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble-user {
+  align-self: flex-end;
+  background: #143322;
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  color: var(--color-text-primary);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-timestamp {
+  font-size: 10px;
+  color: var(--color-text-helper);
+  align-self: flex-end;
+}
+
+/* Card Gerado Dentro da Mensagem */
+.chat-generated-card {
+  background: var(--color-bg-app);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-card-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-accent-green);
+  letter-spacing: 0.05em;
+}
+
+.chat-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.chat-card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.chat-card-list li strong {
+  color: var(--color-text-primary);
+}
+
+.chat-card-meta {
+  display: flex;
+  gap: 12px;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+/* Respostas Rápidas */
+.chat-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.quick-reply-chip {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-default);
+}
+
+.quick-reply-chip:hover {
+  border-color: var(--color-accent-green);
+  color: var(--color-text-primary);
+}
+
+.quick-reply-chip.active-chip {
+  background: var(--color-accent-green);
+  border-color: var(--color-accent-green);
+  color: var(--color-bg-app);
+}
+
+/* Barra de Entrada */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 20px;
+  background: var(--color-bg-app);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.chat-text-input {
+  flex: 1;
+  height: 44px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 0 14px;
+  color: var(--color-text-primary);
+  font-family: var(--font-family);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color var(--transition-default);
+}
+
+.chat-text-input:focus {
+  border-color: var(--color-accent-green);
+  box-shadow: 0 0 0 2px var(--color-accent-glow);
+}
+
+.chat-send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-accent-green);
+  border: none;
+  color: var(--color-bg-app);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition-default);
+}
+
+/* ==========================================================================
+   20. TELA PROGRESSO & DASHBOARD (progresso.html) — Figma #2001:627
+   ========================================================================== */
+.progress-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: var(--color-bg-app);
+}
+
+.notif-badge-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-green);
+}
+
+.progress-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 20px 100px;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.progress-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Seção de Saudação */
+.progress-greeting-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-date-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.progress-main-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.progress-user-tags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.progress-tag-highlight {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-green);
+  background: #153523;
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.progress-tag-info {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+/* Card de Destaque / Treino de Hoje */
+.progress-card-focus {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-accent-green);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+}
+
+.progress-card-badge-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-accent-green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.progress-card-badge-right {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.progress-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 314 / 140;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.progress-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.progress-card-details {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.progress-workout-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.progress-workout-muscles {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin-top: -6px;
+}
+
+.progress-workout-metrics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0 4px;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.metric-intensity {
+  font-weight: 700;
+  color: var(--color-accent-green);
+}
+
+.progress-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-accent-green);
+  color: var(--color-bg-app);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.progress-cta-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Agenda Semanal */
+.progress-week-agenda {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.section-meta-text {
+  font-size: 11px;
+  color: var(--color-text-helper);
+}
+
+.agenda-days-row {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.agenda-day-card {
+  flex: 1;
+  height: 65px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+  transition: all var(--transition-default);
+}
+
+.agenda-day-card.today-active {
+  border-color: var(--color-accent-green);
+  background: #143322;
+}
+
+.agenda-day-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-helper);
+}
+
+.agenda-day-num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.today-active .agenda-day-num {
+  color: var(--color-accent-green);
+}
+
+.agenda-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+.done-dot {
+  background: var(--color-accent-green);
+}
+.active-dot {
+  background: var(--color-accent-green);
+  box-shadow: 0 0 6px var(--color-accent-green);
+}
+.next-dot {
+  background: var(--color-accent-green);
+  opacity: 0.5;
+}
+.rest-dot {
+  background: transparent;
+}
+
+/* Resumo de Atividades */
+.progress-stats-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-big-val {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.stat-big-val.stat-green {
+  color: var(--color-accent-green);
+}
+
+.stat-desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.exercise-card-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.exercise-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+.exercise-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.exercise-arrow {
+  color: var(--color-text-secondary);
+  font-size: 18px;
+  font-weight: 400;
+  user-select: none;
+}
+
+/* ==========================================================================
+   27. TELAS DE ONBOARDING / PERFIL DO ALUNO (#2001:372 a #2001:564)
+   ========================================================================== */
+.onboarding-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.onboarding-back-link,
+.onboarding-exit-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-default);
+}
+
+.onboarding-back-link:hover,
+.onboarding-exit-link:hover {
+  color: #ffffff;
+}
+
+.onboarding-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #737d76;
+  text-transform: uppercase;
+}
+
+.onboarding-stepper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.step-indicator {
+  flex: 1;
+  height: 4px;
+  background-color: #262c28;
+  border-radius: 2px;
+  transition: var(--transition-default);
+}
+
+.step-indicator.active,
+.step-indicator.completed {
+  background-color: #00ff66;
+}
+
+.onboarding-step-counter {
+  font-size: 11px;
+  font-weight: 600;
+  color: #00ff66;
+  margin-bottom: 16px;
+}
+
+.onboarding-heading {
+  margin-bottom: 24px;
+}
+
+.onboarding-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.onboarding-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.selection-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.selection-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.selection-card input[type="radio"] {
+  display: none;
+}
+
+.selection-card:hover {
+  border-color: #4a544e;
+  background-color: #1a1e1b;
+}
+
+.selection-card.selected,
+.selection-card:has(input:checked) {
+  background-color: #153523;
+  border-color: #00ff66;
+}
+
+.selection-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selection-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.selection-card-sub {
+  font-size: 12px;
+  color: #a7aea9;
+}
+
+.selection-card-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #343a36;
+  position: relative;
+  flex-shrink: 0;
+  transition: var(--transition-default);
+}
+
+.selection-card.selected .selection-card-radio,
+.selection-card:has(input:checked) .selection-card-radio {
+  border-color: #00ff66;
+}
+
+.selection-card.selected .selection-card-radio::after,
+.selection-card:has(input:checked) .selection-card-radio::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: #00ff66;
+  border-radius: 50%;
+}
+
+.context-feedback-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background-color: #161917;
+  border: 1px solid #282d2a;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.feedback-icon-pulse {
+  flex-shrink: 0;
+}
+
+.feedback-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feedback-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.feedback-desc {
+  font-size: 11px;
+  color: #a7aea9;
+  line-height: 1.4;
+}
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.onboarding-privacy-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #737d76;
+}
+
+/* Frequência Semanal e Chips */
+.frequency-section,
+.restriction-section {
+  margin-bottom: 20px;
+}
+
+.frequency-title,
+.restriction-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.frequency-chips,
+.restriction-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-item input {
+  display: none;
+}
+
+.chip-label {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a7aea9;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.chip-label:hover {
+  border-color: #4a544e;
+  color: #ffffff;
+}
+
+.chip-label.selected,
+.chip-item:has(input:checked) .chip-label {
+  background-color: #153523;
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.details-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-label-clean {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.custom-textarea {
+  width: 100%;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.custom-textarea:focus {
+  border-color: #00ff66;
+}
+
+.input-helper-clean {
+  font-size: 11px;
+  color: #737d76;
+}
+
+.starting-point-box {
+  background-color: #1e1e1e;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.starting-point-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #00ff66;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.starting-point-summary {
+  font-size: 12px;
+  color: #f5f7f5;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   28. SESSÃO ATIVA & PÓS-SÉRIE RPE (#2001:888 & #2001:988)
+   ========================================================================== */
+.active-session-screen,
+.rpe-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-session-topbar,
+.rpe-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.session-badge {
+  background-color: #153523;
+  color: #00ff66;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.session-pause-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: var(--transition-default);
+}
+
+.session-pause-btn:hover {
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.session-exercise-heading {
+  margin-bottom: 20px;
+}
+
+.session-exercise-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.session-exercise-meta {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Técnica em 3 Fases */
+.technique-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.technique-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.technique-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.badge-base-validated {
+  background-color: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.technique-phases-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.phase-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #282d2a;
+  border-radius: 12px;
+  padding: 12px 6px;
+}
+
+.phase-visual {
+  margin-bottom: 6px;
+}
+
+.phase-time {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.phase-action {
+  font-size: 11px;
+  color: #a7aea9;
+}
+
+.technique-cue {
+  font-size: 12px;
+  color: #a7aea9;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.session-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-pill-box {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.stat-pill-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #737d76;
+  margin-bottom: 4px;
+}
+
+.stat-pill-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Controle de Carga */
+.load-adjustment-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.load-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.load-controls.compact {
+  margin-top: 10px;
+}
+
+.btn-load-step {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #121212;
+  border: 1px solid #343a36;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-default);
+}
+
+.btn-load-step:hover {
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.load-display {
+  text-align: center;
+}
+
+.load-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+}
+
+.load-unit {
+  font-size: 11px;
+  color: #737d76;
+}
+
+.rest-timer-box {
+  background-color: #121212;
+  border: 1px dashed #343a36;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.rest-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.rest-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rest-hint {
+  font-size: 10px;
+  color: #737d76;
+}
+
+.rest-time-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00ff66;
+}
+
+.session-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+.session-next-up {
+  font-size: 12px;
+  color: #737d76;
+}
+
+/* RPE Pós-Série */
+.rpe-series-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #737d76;
+  letter-spacing: 0.05em;
+}
+
+.badge-concluded {
+  background-color: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.rpe-heading {
+  margin-bottom: 20px;
+}
+
+.rpe-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.rpe-exercise-info {
+  font-size: 12px;
+  color: #a7aea9;
+  line-height: 1.5;
+}
+
+.rpe-exercise-info strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.rpe-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.rpe-card-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rpe-effort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.rpe-scale-tag {
+  font-size: 11px;
+  color: #00ff66;
+  font-weight: 700;
+}
+
+.rpe-scale-hint {
+  font-size: 11px;
+  color: #737d76;
+  margin-bottom: 14px;
+}
+
+.rpe-selector-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rpe-pill input {
+  display: none;
+}
+
+.rpe-pill span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  background-color: #121212;
+  border: 1px solid #343a36;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #a7aea9;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.rpe-pill:hover span {
+  border-color: #4a544e;
+  color: #ffffff;
+}
+
+.rpe-pill.selected span,
+.rpe-pill:has(input:checked) span {
+  background-color: #153523;
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.rpe-feedback-calc {
+  font-size: 11px;
+  color: #00ff66;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pain-chips-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.rpe-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.rpe-next-summary {
+  font-size: 12px;
+  color: #737d76;
+}
+
+
+/* ==========================================================================
+   30. AJUSTES GLOBAIS E COMPONENTES AUXILIARES (AUDITORIA DE ESTILOS)
+   ========================================================================== */
+
+/* Botões Genéricos Utilitários */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-default);
+  padding: 16px 24px;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background-color: var(--color-accent-active);
+  transform: translateY(0);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Indicador de Barra Inferior de Navegação (Home Bar iOS) */
+.home-indicator-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0 4px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.home-indicator {
+  width: 134px;
+  height: 4px;
+  background-color: #5c6460;
+  border-radius: 100px;
+}
+
+/* Formulários de Onboarding & RPE */
+.onboarding-form,
+.rpe-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Ícones de Olho em Campos de Senha */
+.eye-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+/* Card de Segurança no Perfil */
+.security-card {
+  border-left: 3px solid var(--color-accent-green);
+}
+
+/* Tip no Pace AI */
+.ai-bottom-tip {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: #161917;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Meu Treino Detalhe Auxiliares */
+.active-workout-card {
+  border: 1px solid var(--color-accent-green);
+  background-color: #153523;
+}
+
+.feedback-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-green);
+}
+
