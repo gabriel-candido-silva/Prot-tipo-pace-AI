@@ -268,7 +268,8 @@ body {
 }
 
 /* Caso 2: Apenas E-mail inválido */
-.signup-form:has(#email:user-invalid):not(:has(#cpf:user-invalid)) .alert-email {
+.signup-form:has(#email:user-invalid):not(:has(#cpf:user-invalid))
+  .alert-email {
   display: block;
 }
 
@@ -309,7 +310,9 @@ body {
   padding: 6px;
   border-radius: 4px;
   outline: none;
-  transition: color var(--transition-default), transform var(--transition-default);
+  transition:
+    color var(--transition-default),
+    transform var(--transition-default);
 }
 
 .btn-toggle-password:hover {
@@ -983,7 +986,9 @@ a.btn-primary {
   border-radius: 12px;
   cursor: pointer;
   color: var(--color-text-secondary);
-  transition: border-color var(--transition-default), color var(--transition-default);
+  transition:
+    border-color var(--transition-default),
+    color var(--transition-default);
 }
 .home-profile-btn:hover {
   border-color: var(--color-accent-green);
@@ -1099,7 +1104,11 @@ a.btn-primary {
   left: 0;
   right: 0;
   height: 100px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
   border-radius: 0 0 12px 12px;
   pointer-events: none;
 }
@@ -1183,7 +1192,9 @@ a.btn-primary {
   border-radius: 3px;
   background: var(--color-border-subtle);
   cursor: pointer;
-  transition: width 0.25s ease, background 0.25s ease;
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
 }
 .carousel-dot.active {
   width: 20px;
@@ -1209,7 +1220,9 @@ a.btn-primary {
   border-radius: 12px;
   cursor: pointer;
   text-decoration: none;
-  transition: background var(--transition-default), opacity var(--transition-default);
+  transition:
+    background var(--transition-default),
+    opacity var(--transition-default);
 }
 .workout-cta-btn:hover {
   background: var(--color-accent-hover);
@@ -1402,7 +1415,9 @@ a.btn-primary {
   padding: 0 16px;
   cursor: pointer;
   text-decoration: none;
-  transition: border-color var(--transition-default), background var(--transition-default);
+  transition:
+    border-color var(--transition-default),
+    background var(--transition-default);
 }
 
 .exercise-card:hover {
@@ -1767,7 +1782,11 @@ a.btn-primary {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    var(--color-accent-glow) 0%,
+    transparent 70%
+  );
   pointer-events: none;
 }
 
@@ -2357,10 +2376,20 @@ a.btn-primary {
   height: 5px;
   border-radius: 50%;
 }
-.done-dot { background: var(--color-accent-green); }
-.active-dot { background: var(--color-accent-green); box-shadow: 0 0 6px var(--color-accent-green); }
-.next-dot { background: var(--color-accent-green); opacity: 0.5; }
-.rest-dot { background: transparent; }
+.done-dot {
+  background: var(--color-accent-green);
+}
+.active-dot {
+  background: var(--color-accent-green);
+  box-shadow: 0 0 6px var(--color-accent-green);
+}
+.next-dot {
+  background: var(--color-accent-green);
+  opacity: 0.5;
+}
+.rest-dot {
+  background: transparent;
+}
 
 /* Resumo de Atividades */
 .progress-stats-summary {
@@ -2421,7 +2450,6 @@ a.btn-primary {
   font-weight: 400;
   user-select: none;
 }
-
 
 /* ==========================================================================
    26. PAINEL DO PERSONAL (MODELO DESKTOP - FIGMA #2001:1206)
@@ -3376,4 +3404,865 @@ a.btn-primary {
 
 .footer-sync {
   color: #00ff66;
+}
+
+/* ==========================================================================
+   27. TELAS DE ONBOARDING / PERFIL DO ALUNO (#2001:372 a #2001:564)
+   ========================================================================== */
+.onboarding-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.onboarding-back-link,
+.onboarding-exit-link {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-default);
+}
+
+.onboarding-back-link:hover,
+.onboarding-exit-link:hover {
+  color: #ffffff;
+}
+
+.onboarding-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #737d76;
+  text-transform: uppercase;
+}
+
+.onboarding-stepper {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.step-indicator {
+  flex: 1;
+  height: 4px;
+  background-color: #262c28;
+  border-radius: 2px;
+  transition: var(--transition-default);
+}
+
+.step-indicator.active,
+.step-indicator.completed {
+  background-color: #00ff66;
+}
+
+.onboarding-step-counter {
+  font-size: 11px;
+  font-weight: 600;
+  color: #00ff66;
+  margin-bottom: 16px;
+}
+
+.onboarding-heading {
+  margin-bottom: 24px;
+}
+
+.onboarding-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.onboarding-desc {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.selection-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.selection-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 16px;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.selection-card input[type="radio"] {
+  display: none;
+}
+
+.selection-card:hover {
+  border-color: #4a544e;
+  background-color: #1a1e1b;
+}
+
+.selection-card.selected,
+.selection-card:has(input:checked) {
+  background-color: #153523;
+  border-color: #00ff66;
+}
+
+.selection-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.selection-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.selection-card-sub {
+  font-size: 12px;
+  color: #a7aea9;
+}
+
+.selection-card-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #343a36;
+  position: relative;
+  flex-shrink: 0;
+  transition: var(--transition-default);
+}
+
+.selection-card.selected .selection-card-radio,
+.selection-card:has(input:checked) .selection-card-radio {
+  border-color: #00ff66;
+}
+
+.selection-card.selected .selection-card-radio::after,
+.selection-card:has(input:checked) .selection-card-radio::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  background-color: #00ff66;
+  border-radius: 50%;
+}
+
+.context-feedback-card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background-color: #161917;
+  border: 1px solid #282d2a;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.feedback-icon-pulse {
+  flex-shrink: 0;
+}
+
+.feedback-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feedback-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.feedback-desc {
+  font-size: 11px;
+  color: #a7aea9;
+  line-height: 1.4;
+}
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.onboarding-privacy-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #737d76;
+}
+
+/* Frequência Semanal e Chips */
+.frequency-section,
+.restriction-section {
+  margin-bottom: 20px;
+}
+
+.frequency-title,
+.restriction-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.frequency-chips,
+.restriction-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip-item input {
+  display: none;
+}
+
+.chip-label {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a7aea9;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.chip-label:hover {
+  border-color: #4a544e;
+  color: #ffffff;
+}
+
+.chip-label.selected,
+.chip-item:has(input:checked) .chip-label {
+  background-color: #153523;
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.details-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-label-clean {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.custom-textarea {
+  width: 100%;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.custom-textarea:focus {
+  border-color: #00ff66;
+}
+
+.input-helper-clean {
+  font-size: 11px;
+  color: #737d76;
+}
+
+.starting-point-box {
+  background-color: #1e1e1e;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+}
+
+.starting-point-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #00ff66;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.starting-point-summary {
+  font-size: 12px;
+  color: #f5f7f5;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   28. SESSÃO ATIVA & PÓS-SÉRIE RPE (#2001:888 & #2001:988)
+   ========================================================================== */
+.active-session-screen,
+.rpe-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-session-topbar,
+.rpe-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+
+.session-badge {
+  background-color: #153523;
+  color: #00ff66;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.session-pause-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #161917;
+  border: 1px solid #343a36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: var(--transition-default);
+}
+
+.session-pause-btn:hover {
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.session-exercise-heading {
+  margin-bottom: 20px;
+}
+
+.session-exercise-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.session-exercise-meta {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+/* Técnica em 3 Fases */
+.technique-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.technique-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.technique-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.badge-base-validated {
+  background-color: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.technique-phases-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.phase-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121212;
+  border: 1px solid #282d2a;
+  border-radius: 12px;
+  padding: 12px 6px;
+}
+
+.phase-visual {
+  margin-bottom: 6px;
+}
+
+.phase-time {
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.phase-action {
+  font-size: 11px;
+  color: #a7aea9;
+}
+
+.technique-cue {
+  font-size: 12px;
+  color: #a7aea9;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.session-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-pill-box {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+
+.stat-pill-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #737d76;
+  margin-bottom: 4px;
+}
+
+.stat-pill-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* Controle de Carga */
+.load-adjustment-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.load-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.load-controls.compact {
+  margin-top: 10px;
+}
+
+.btn-load-step {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #121212;
+  border: 1px solid #343a36;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-default);
+}
+
+.btn-load-step:hover {
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.load-display {
+  text-align: center;
+}
+
+.load-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+}
+
+.load-unit {
+  font-size: 11px;
+  color: #737d76;
+}
+
+.rest-timer-box {
+  background-color: #121212;
+  border: 1px dashed #343a36;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.rest-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.rest-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rest-hint {
+  font-size: 10px;
+  color: #737d76;
+}
+
+.rest-time-val {
+  font-size: 18px;
+  font-weight: 800;
+  color: #00ff66;
+}
+
+.session-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 10px;
+}
+
+.session-next-up {
+  font-size: 12px;
+  color: #737d76;
+}
+
+/* RPE Pós-Série */
+.rpe-series-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #737d76;
+  letter-spacing: 0.05em;
+}
+
+.badge-concluded {
+  background-color: rgba(0, 255, 102, 0.15);
+  color: #00ff66;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.rpe-heading {
+  margin-bottom: 20px;
+}
+
+.rpe-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.rpe-exercise-info {
+  font-size: 12px;
+  color: #a7aea9;
+  line-height: 1.5;
+}
+
+.rpe-exercise-info strong {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.rpe-card {
+  background-color: #161917;
+  border: 1px solid #343a36;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.rpe-card-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.rpe-effort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.rpe-scale-tag {
+  font-size: 11px;
+  color: #00ff66;
+  font-weight: 700;
+}
+
+.rpe-scale-hint {
+  font-size: 11px;
+  color: #737d76;
+  margin-bottom: 14px;
+}
+
+.rpe-selector-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rpe-pill input {
+  display: none;
+}
+
+.rpe-pill span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  background-color: #121212;
+  border: 1px solid #343a36;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #a7aea9;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.rpe-pill:hover span {
+  border-color: #4a544e;
+  color: #ffffff;
+}
+
+.rpe-pill.selected span,
+.rpe-pill:has(input:checked) span {
+  background-color: #153523;
+  border-color: #00ff66;
+  color: #00ff66;
+}
+
+.rpe-feedback-calc {
+  font-size: 11px;
+  color: #00ff66;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pain-chips-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.rpe-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-top: auto;
+  padding-bottom: 12px;
+}
+
+.rpe-next-summary {
+  font-size: 12px;
+  color: #737d76;
+}
+
+
+/* ==========================================================================
+   30. AJUSTES GLOBAIS E COMPONENTES AUXILIARES (AUDITORIA DE ESTILOS)
+   ========================================================================== */
+
+/* Botões Genéricos Utilitários */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-default);
+  padding: 16px 24px;
+}
+
+.btn-primary {
+  background-color: var(--color-accent-green);
+  color: var(--color-text-dark);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background-color: var(--color-accent-active);
+  transform: translateY(0);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Indicador de Barra Inferior de Navegação (Home Bar iOS) */
+.home-indicator-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0 4px;
+  width: 100%;
+  margin-top: auto;
+}
+
+.home-indicator {
+  width: 134px;
+  height: 4px;
+  background-color: #5c6460;
+  border-radius: 100px;
+}
+
+/* Formulários de Onboarding & RPE */
+.onboarding-form,
+.rpe-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Ícones de Olho em Campos de Senha */
+.eye-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+/* Card de Segurança no Perfil */
+.security-card {
+  border-left: 3px solid var(--color-accent-green);
+}
+
+/* Tip no Pace AI */
+.ai-bottom-tip {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: #161917;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Meu Treino Detalhe Auxiliares */
+.active-workout-card {
+  border: 1px solid var(--color-accent-green);
+  background-color: #153523;
+}
+
+.feedback-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-green);
+}
+
+/* Desktop Painel Auxiliares */
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calib-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.calib-right {
+  display: flex;
+  align-items: center;
+}
+
+.students-table-card {
+  width: 100%;
 }
